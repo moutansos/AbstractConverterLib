@@ -6,8 +6,6 @@ namespace AbstractConverterLib
 {
     class ConvToString
     {
-        private const string EVALTYPEERROR = "AbstractConverterLib Internal Error: Invalid EvalType";
-
         public static K Conv<T, K>(T dataIn, EvalType type)
         {
             if(typeof(T) == typeof(string))
@@ -21,6 +19,10 @@ namespace AbstractConverterLib
             else if(typeof(T) == typeof(float))
             {
                 return FloatToString<K>(dataIn);
+            }
+            else if(typeof(T) == typeof(double))
+            {
+                return DoubleToString<K>(dataIn);
             }
             else
             {
@@ -50,6 +52,14 @@ namespace AbstractConverterLib
         {
             //Convert
             string newStr = (float)Convert.ChangeType(data, typeof(float)) + "";
+
+            return changeType<K>(newStr);
+        }
+
+        private static K DoubleToString<K>(object data)
+        {
+            //Convert
+            string newStr = (double)Convert.ChangeType(data, typeof(double)) + "";
 
             return changeType<K>(newStr);
         }

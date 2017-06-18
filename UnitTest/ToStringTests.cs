@@ -33,5 +33,14 @@ namespace UnitTest
             string converted = field.ToType<string>();
             Assert.AreEqual(original + "", converted);
         }
+
+        [TestMethod]
+        public void DoubleToStringDataField()
+        {
+            double original = -2901391283904032333;
+            DataField<double> field = new DataField<double>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
     }
 }
