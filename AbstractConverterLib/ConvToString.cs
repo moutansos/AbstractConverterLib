@@ -18,15 +18,24 @@ namespace AbstractConverterLib
             {
                 return IntToString<K>(dataIn);
             }
+            else if(typeof(T) == typeof(float))
+            {
+                return FloatToString<K>(dataIn);
+            }
             else
             {
                 throw new InvalidCastException("The cast of type " + typeof(T) + " to the type of " + typeof(string) + " is not supported.");
             }
         }
 
+        private static K changeType<K>(object data)
+        {
+            return (K)Convert.ChangeType(data, typeof(K));
+        }
+
         private static K StringToString<K>(object data)
         {
-            return (K)Convert.ChangeType(data, typeof(string));
+            return changeType<K>(data);
         }
 
         private static K IntToString<K>(object data)
@@ -34,7 +43,15 @@ namespace AbstractConverterLib
             //Convert
             string newStr = (int)Convert.ChangeType(data, typeof(int)) + "";
 
-            return (K)Convert.ChangeType(data, typeof(K));
+            return changeType<K>(newStr);
+        }
+
+        private static K FloatToString<K>(object data)
+        {
+            //Convert
+            string newStr = (float)Convert.ChangeType(data, typeof(float)) + "";
+
+            return changeType<K>(newStr);
         }
     }
 }

@@ -17,10 +17,19 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void IntToString()
+        public void IntToStringDataField()
         {
             int original = -123124891;
             DataField<int> field = new DataField<int>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
+        [TestMethod]
+        public void FloatToStringDataField()
+        {
+            float original = -1249999999999999999;
+            DataField<float> field = new DataField<float>(original);
             string converted = field.ToType<string>();
             Assert.AreEqual(original + "", converted);
         }
