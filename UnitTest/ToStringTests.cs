@@ -42,5 +42,14 @@ namespace UnitTest
             string converted = field.ToType<string>();
             Assert.AreEqual(original + "", converted);
         }
+
+        [TestMethod]
+        public void StringArrayToString()
+        {
+            string[] original = { "Test1", "Test2", "Test3" };
+            DataField<string[]> field = new DataField<string[]>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual("Test1, Test2, Test3", converted);
+        }
     }
 }
