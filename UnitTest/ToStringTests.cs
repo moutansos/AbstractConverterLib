@@ -18,6 +18,15 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void BoolToStringDataField()
+        {
+            bool original = true;
+            DataField<bool> field = new DataField<bool>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original.ToString(), converted);
+        }
+
+        [TestMethod]
         public void IntToStringDataField()
         {
             int original = -123124891;

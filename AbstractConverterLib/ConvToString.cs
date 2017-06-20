@@ -15,6 +15,10 @@ namespace AbstractConverterLib
             {
                 return StringToString<OUT>(dataIn);
             }
+            else if(dataInType == typeof(bool))
+            {
+                return BoolToString<OUT>(dataIn);
+            }
             else if (dataInType == typeof(int))
             {
                 return IntToString<OUT>(dataIn);
@@ -54,6 +58,14 @@ namespace AbstractConverterLib
         private static K StringToString<K>(object data)
         {
             return changeType<K>(data);
+        }
+
+        private static K BoolToString<K>(object data)
+        {
+            //Convert
+            string newStr = (bool)Convert.ChangeType(data, typeof(bool)) + "";
+
+            return changeType<K>(newStr);
         }
 
         private static K IntToString<K>(object data)
