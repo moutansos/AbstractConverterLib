@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace AbstractConverterLib
@@ -29,6 +30,10 @@ namespace AbstractConverterLib
             else if (dataInType.ToString().EndsWith("[]")) //This is a hack. Find a better method of doing this
             {
                 return ArrayToString<OUT>(dataIn, type, collectionDelimiter);
+            }
+            else if(dataInType.ToString().StartsWith("System.Collections.Generic.List"))// This is a hack. Find a better method of doing this
+            {
+                return ListToString<OUT>(dataIn, type, collectionDelimiter); 
             }
             else
             {
@@ -84,6 +89,27 @@ namespace AbstractConverterLib
             {
                 Type originalType = ara[i].GetType();
                 string elStr = Conv<string>(ara[i], originalType, eval, collectionDelimiter);
+                if (i == 0)
+                {
+                    outStr = outStr + elStr;
+                }
+                else
+                {
+                    outStr = outStr + collectionDelimiter + " " + elStr;
+                }
+            }
+            return changeType<K>(outStr);
+        }
+
+        private static K ListToString<K>(object data, EvalType eval, char collectionDelimiter)
+        {
+            dynamic list = data;
+
+            string outStr = "";
+            for(int i = 0; i < list.Count; i++)
+            {
+                Type originalType = list[i].GetType();
+                string elStr = Conv<string>(list[i], originalType, eval, collectionDelimiter);
                 if (i == 0)
                 {
                     outStr = outStr + elStr;
