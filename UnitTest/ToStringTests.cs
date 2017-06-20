@@ -43,6 +43,7 @@ namespace UnitTest
             Assert.AreEqual(original + "", converted);
         }
 
+        #region Array Tests
         [TestMethod]
         public void StringArrayToString()
         {
@@ -51,5 +52,24 @@ namespace UnitTest
             string converted = field.ToType<string>();
             Assert.AreEqual("Test1, Test2, Test3", converted);
         }
+
+        [TestMethod]
+        public void IntArrayToString()
+        {
+            int[] original = { 4, -3, 7, 9, 56445, 435, -234 };
+            DataField<int[]> field = new DataField<int[]>(original, '-');
+            string converted = field.ToType<string>();
+            Assert.AreEqual("4- -3- 7- 9- 56445- 435- -234", converted);
+        }
+
+        [TestMethod]
+        public void ObjArrayToString()
+        {
+            object[] original = { 4, "Test", 543, 6.4 };
+            DataField<object[]> field = new DataField<object[]>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual("4, Test, 543, 6.4", converted);
+        }
+        #endregion
     }
 }

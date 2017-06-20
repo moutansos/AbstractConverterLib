@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AbstractConverterLib\AbstractConverterLib.csproj">
-      <Project>{42d49e42-be70-406c-a7a4-d28e06400238}</Project>
+      <Project>{3f9d1172-a86b-48e0-8796-83da060d9d8c}</Project>
       <Name>AbstractConverterLib</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AbstractConverterLib
 {
@@ -23,7 +27,7 @@ namespace AbstractConverterLib
 
         public K ToType<K>()
         {
-            if(typeof(K) == typeof(string))
+            if (typeof(K) == typeof(string))
             {
                 return ConvToString.Conv<T, K>(data, type, collectionDelimiter);
             }

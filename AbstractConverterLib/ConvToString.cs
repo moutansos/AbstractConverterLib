@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AbstractConverterLib
 {
@@ -75,13 +77,14 @@ namespace AbstractConverterLib
 
         private static K ArrayToString<K>(object data, EvalType eval, char collectionDelimiter)
         {
-            object[] ara = (object[])data;
+            dynamic ara = data;
+
             string outStr = "";
-            for(int i = 0; i < ara.Length; i++)
+            for (int i = 0; i < ara.Length; i++)
             {
                 Type originalType = ara[i].GetType();
                 string elStr = Conv<string>(ara[i], originalType, eval, collectionDelimiter);
-                if(i == 0)
+                if (i == 0)
                 {
                     outStr = outStr + elStr;
                 }
