@@ -27,6 +27,15 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void ByteToStringDataField()
+        {
+            byte original = 123;
+            DataField<byte> field = new DataField<byte>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
+        [TestMethod]
         public void IntToStringDataField()
         {
             int original = -123124891;

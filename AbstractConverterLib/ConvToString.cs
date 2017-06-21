@@ -19,6 +19,10 @@ namespace AbstractConverterLib
             {
                 return BoolToString<OUT>(dataIn);
             }
+            else if(dataInType == typeof(byte))
+            {
+                return ByteToString<OUT>(dataIn);
+            }
             else if (dataInType == typeof(int))
             {
                 return IntToString<OUT>(dataIn);
@@ -71,6 +75,14 @@ namespace AbstractConverterLib
 
             return ChangeType<K>(newStr);
         }
+
+        private static K ByteToString<K>(object data)
+        {
+            //Convert
+            string newStr = (byte)Convert.ChangeType(data, typeof(byte)) + "";
+
+            return ChangeType<K>(newStr);
+        } 
 
         private static K IntToString<K>(object data)
         {
