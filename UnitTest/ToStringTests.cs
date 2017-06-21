@@ -53,9 +53,18 @@ namespace UnitTest
             Assert.AreEqual(original + "", converted);
         }
 
+        [TestMethod]
+        public void DecimalToStringDataField()
+        {
+            decimal original = -2923338989098908989;
+            DataField<decimal> field = new DataField<decimal>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
         #region Array Tests
         [TestMethod]
-        public void StringArrayToString()
+        public void StringArrayToStringDataField()
         {
             string[] original = { "Test1", "Test2", "Test3" };
             DataField<string[]> field = new DataField<string[]>(original);
@@ -64,7 +73,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void IntArrayToString()
+        public void IntArrayToStringDataField()
         {
             int[] original = { 4, -3, 7, 9, 56445, 435, -234 };
             DataField<int[]> field = new DataField<int[]>(original, '-');
@@ -73,7 +82,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void ObjArrayToString()
+        public void ObjArrayToStringDataField()
         {
             object[] original = { 4, "Test", 543, 6.4 };
             DataField<object[]> field = new DataField<object[]>(original);
@@ -83,7 +92,7 @@ namespace UnitTest
         #endregion
 
         #region List Tests
-        public void StringListToString()
+        public void StringListToStringDataField()
         {
             List<string> original = new List<string>(new string[]{ "Test1", "Test2", "Test3" });
             DataField<List<string>> field = new DataField<List<string>>(original);
@@ -92,7 +101,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void IntListToString()
+        public void IntListToStringDataField()
         {
             int[] original = { 4, -3, 7, 9, 56445, 435, -234 };
             DataField<int[]> field = new DataField<int[]>(original, '-');
@@ -101,7 +110,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void ObjListToString()
+        public void ObjListToStringDataField()
         {
             List<object> original = new List<object>(new object[]{ 4, "Test", 543, 6.4 });
             DataField<List<object>> field = new DataField<List<object>>(original);

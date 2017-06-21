@@ -31,6 +31,10 @@ namespace AbstractConverterLib
             {
                 return DoubleToString<OUT>(dataIn);
             }
+            else if (dataInType == typeof(decimal))
+            {
+                return DecimalToString<OUT>(dataIn);
+            }
             else if (dataInType.ToString().EndsWith("[]")) //This is a hack. Find a better method of doing this
             {
                 return ArrayToString<OUT>(dataIn, type, collectionDelimiter);
@@ -50,14 +54,14 @@ namespace AbstractConverterLib
             return Conv<OUT>(dataIn, typeof(IN), type, collectionDelimiter);
         }
 
-        private static K changeType<K>(object data)
+        private static K ChangeType<K>(object data)
         {
             return (K)Convert.ChangeType(data, typeof(K));
         }
 
         private static K StringToString<K>(object data)
         {
-            return changeType<K>(data);
+            return ChangeType<K>(data);
         }
 
         private static K BoolToString<K>(object data)
@@ -65,7 +69,7 @@ namespace AbstractConverterLib
             //Convert
             string newStr = (bool)Convert.ChangeType(data, typeof(bool)) + "";
 
-            return changeType<K>(newStr);
+            return ChangeType<K>(newStr);
         }
 
         private static K IntToString<K>(object data)
@@ -73,7 +77,7 @@ namespace AbstractConverterLib
             //Convert
             string newStr = (int)Convert.ChangeType(data, typeof(int)) + "";
 
-            return changeType<K>(newStr);
+            return ChangeType<K>(newStr);
         }
 
         private static K FloatToString<K>(object data)
@@ -81,7 +85,7 @@ namespace AbstractConverterLib
             //Convert
             string newStr = (float)Convert.ChangeType(data, typeof(float)) + "";
 
-            return changeType<K>(newStr);
+            return ChangeType<K>(newStr);
         }
 
         private static K DoubleToString<K>(object data)
@@ -89,7 +93,14 @@ namespace AbstractConverterLib
             //Convert
             string newStr = (double)Convert.ChangeType(data, typeof(double)) + "";
 
-            return changeType<K>(newStr);
+            return ChangeType<K>(newStr);
+        }
+
+        private static K DecimalToString<K>(object data)
+        {
+            string newStr = (decimal)Convert.ChangeType(data, typeof(decimal)) + "";
+
+            return ChangeType<K>(newStr);
         }
 
         private static K ArrayToString<K>(object data, EvalType eval, char collectionDelimiter)
@@ -110,7 +121,7 @@ namespace AbstractConverterLib
                     outStr = outStr + collectionDelimiter + " " + elStr;
                 }
             }
-            return changeType<K>(outStr);
+            return ChangeType<K>(outStr);
         }
 
         private static K ListToString<K>(object data, EvalType eval, char collectionDelimiter)
@@ -131,7 +142,7 @@ namespace AbstractConverterLib
                     outStr = outStr + collectionDelimiter + " " + elStr;
                 }
             }
-            return changeType<K>(outStr);
+            return ChangeType<K>(outStr);
         }
     }
 }
