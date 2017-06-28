@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\ConverterConfig.cs" />
+    <Compile Include="Config\DictionaryToStringConfig.cs" />
     <Compile Include="ConvToString.cs" />
     <Compile Include="DataField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
