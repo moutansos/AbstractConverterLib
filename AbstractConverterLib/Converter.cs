@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AbstractConverterLib
 {
-    public class Converter
+    public class AbstractConverter
     {
         #region To String Methods
         private Func<string, string> StringToString;
@@ -25,7 +25,9 @@ namespace AbstractConverterLib
         private Func<char, string> CharToString;
         #endregion
 
-        public Converter()
+        TypedMethodRouter router;
+
+        public AbstractConverter()
         {
             StringToString = ConvToString.StringToString;
             BoolToString = ConvToString.BoolToString;
@@ -41,6 +43,9 @@ namespace AbstractConverterLib
             UlongToString = ConvToString.UlongToString;
             UshortToString = ConvToString.UshortToString;
             CharToString = ConvToString.CharToString;
+
+            router = new TypedMethodRouter();
+            router.AddMethod<string, string>(ConvToString.StringToString);
         }
 
         #region To String Properties
@@ -114,5 +119,68 @@ namespace AbstractConverterLib
             set => CharToString = value;
         }
         #endregion
+
+        public OUT Conv<IN, OUT>(IN dataIn)
+        {
+            if(typeof(OUT) == typeof(string))
+            {
+                return ToStringRouter<OUT, IN>(dataIn);
+            }
+            else
+            {
+                throw new UnableToConvertTypeException("Unable to convert the type " + typeof(IN) + " to the type of " + typeof(OUT));
+            }
+        }
+
+        private OUT ToStringRouter<OUT, IN>(IN dataIn)
+        {
+            if(typeof(IN) == typeof(string))
+            {
+
+            }
+            else
+            {
+                throw new UnableToConvertTypeException("Unable to convert the type " + typeof(IN) + " to the type of " + typeof(OUT));
+            }
+        }
+    }
+
+    public class TypedMethodRouter
+    {
+        private Dictionary<Tuple<Type, Type>, Func<object, object>> dict;
+
+        public TypedMethodRouter()
+        {
+            dict = new Dictionary<Tuple<Type, Type>, Func<object, object>>();
+        }
+
+        public void AddMethod<IN, OUT>(Func<IN, OUT> method)
+        {
+            Tuple<Type, Type> key = new Tuple<Type, Type>(typeof(IN), typeof(OUT));
+            dict[key] = (Func<object, object>)Convert.ChangeType(method, typeof(Func<object, object>));
+        }
+
+        public Func<IN, OUT> GetMethod<IN, OUT>()
+        {
+            Tuple<Type, Type> key = new Tuple<Type, Type>(typeof(IN), typeof(OUT));
+            Func<object, object> unconverted = dict[key];
+            Func<IN, OUT> converted = (Func<IN, OUT>)Convert.ChangeType(unconverted, typeof(Func<IN, OUT>));
+            return converted;
+        }
+
+        public bool ContainsRoute(Type inType, Type outType)
+        {
+            Tuple<Type, Type> key = new Tuple<Type, Type>(inType, outType);
+            if(dict.ContainsKey(key))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool ContainsRoute<IN, OUT>()
+        {
+            return ContainsRoute(typeof(IN), typeof(OUT));
+        }
     }
 }
