@@ -7,37 +7,79 @@ using System.Threading.Tasks;
 
 namespace AbstractConverterLib
 {
-    class ConvToString
+    static class ConvToString
     {
         public static OUT Conv<OUT>(object dataIn, Type dataInType, EvalType type, char collectionDelimiter)
         {
             if (dataInType == typeof(string))
             {
-                return StringToString<OUT>(dataIn);
+                string converted = ChangeTypeAndConvert<string, string>(dataIn, StringToString);
+                return ChangeType<OUT>(converted);
             }
-            else if(dataInType == typeof(bool))
+            else if (dataInType == typeof(bool))
             {
-                return BoolToString<OUT>(dataIn);
+                string converted = ChangeTypeAndConvert<string, bool>(dataIn, BoolToString);
+                return ChangeType<OUT>(converted);
             }
-            else if(dataInType == typeof(byte))
+            else if (dataInType == typeof(byte))
             {
-                return ByteToString<OUT>(dataIn);
+                string converted = ChangeTypeAndConvert<string, byte>(dataIn, ByteToString);
+                return ChangeType<OUT>(converted);
             }
             else if (dataInType == typeof(int))
             {
-                return IntToString<OUT>(dataIn);
+                string converted = ChangeTypeAndConvert<string, int>(dataIn, IntToString);
+                return ChangeType<OUT>(converted);
             }
             else if (dataInType == typeof(float))
             {
-                return FloatToString<OUT>(dataIn);
+                string converted = ChangeTypeAndConvert<string, float>(dataIn, FloatToString);
+                return ChangeType<OUT>(converted);
             }
             else if (dataInType == typeof(double))
             {
-                return DoubleToString<OUT>(dataIn);
+                string converted = ChangeTypeAndConvert<string, double>(dataIn, DoubleToString);
+                return ChangeType<OUT>(converted);
             }
             else if (dataInType == typeof(decimal))
             {
-                return DecimalToString<OUT>(dataIn);
+                string converted = ChangeTypeAndConvert<string, decimal>(dataIn, DecimalToString);
+                return ChangeType<OUT>(converted);
+            }
+            else if (dataInType == typeof(sbyte))
+            {
+                string converted = ChangeTypeAndConvert<string, sbyte>(dataIn, SbyteToString);
+                return ChangeType<OUT>(converted);
+            }
+            else if (dataInType == typeof(long))
+            {
+                string converted = ChangeTypeAndConvert<string, long>(dataIn, LongToString);
+                return ChangeType<OUT>(converted);
+            }
+            else if (dataInType == typeof(short))
+            {
+                string converted = ChangeTypeAndConvert<string, short>(dataIn, ShortToString);
+                return ChangeType<OUT>(converted);
+            }
+            else if (dataInType == typeof(uint))
+            {
+                string converted = ChangeTypeAndConvert<string, uint>(dataIn, UintToString);
+                return ChangeType<OUT>(converted);
+            }
+            else if (dataInType == typeof(ulong))
+            {
+                string converted = ChangeTypeAndConvert<string, ulong>(dataIn, UlongToString);
+                return ChangeType<OUT>(converted);
+            }
+            else if (dataInType == typeof(ushort))
+            {
+                string converted = ChangeTypeAndConvert<string, ushort>(dataIn, UshortToString);
+                return ChangeType<OUT>(converted);
+            }
+            else if (dataInType == typeof(char))
+            {
+                string converted = ChangeTypeAndConvert<string, char>(dataIn, CharToString);
+                return ChangeType<OUT>(converted);
             }
             else if (dataInType.ToString().EndsWith("[]")) //This is a hack. Find a better method of doing this
             {
@@ -63,56 +105,81 @@ namespace AbstractConverterLib
             return (K)Convert.ChangeType(data, typeof(K));
         }
 
-        private static K StringToString<K>(object data)
+        private static OUT ChangeTypeAndConvert<OUT, ORIGIN>(object dataIn, Func<ORIGIN, OUT> conversionMethod)
         {
-            return ChangeType<K>(data);
+            ORIGIN originalData = ChangeType<ORIGIN>(dataIn);
+            OUT outData = conversionMethod(originalData);
+            return outData;
         }
 
-        private static K BoolToString<K>(object data)
+        public static string StringToString(string data)
         {
-            //Convert
-            string newStr = (bool)Convert.ChangeType(data, typeof(bool)) + "";
-
-            return ChangeType<K>(newStr);
+            return data;
         }
 
-        private static K ByteToString<K>(object data)
+        public static string BoolToString(bool data)
         {
-            //Convert
-            string newStr = (byte)Convert.ChangeType(data, typeof(byte)) + "";
-
-            return ChangeType<K>(newStr);
-        } 
-
-        private static K IntToString<K>(object data)
-        {
-            //Convert
-            string newStr = (int)Convert.ChangeType(data, typeof(int)) + "";
-
-            return ChangeType<K>(newStr);
+            return data + "";
         }
 
-        private static K FloatToString<K>(object data)
+        public static string ByteToString(byte data)
         {
-            //Convert
-            string newStr = (float)Convert.ChangeType(data, typeof(float)) + "";
-
-            return ChangeType<K>(newStr);
+            return data + "";
         }
 
-        private static K DoubleToString<K>(object data)
+        public static string IntToString(int data)
         {
-            //Convert
-            string newStr = (double)Convert.ChangeType(data, typeof(double)) + "";
-
-            return ChangeType<K>(newStr);
+            return data + "";
         }
 
-        private static K DecimalToString<K>(object data)
+        public static string FloatToString(float data)
         {
-            string newStr = (decimal)Convert.ChangeType(data, typeof(decimal)) + "";
+            return data + "";
+        }
 
-            return ChangeType<K>(newStr);
+        public static string DoubleToString(double data)
+        {
+            return data + "";
+        }
+
+        public static string DecimalToString(decimal data)
+        {
+            return data + "";
+        }
+
+        public static string SbyteToString(sbyte data)
+        {
+            return data + "";
+        }
+
+        public static string LongToString(long data)
+        {
+            return data + "";
+        }
+
+        public static string ShortToString(short data)
+        {
+            return data + "";
+        }
+
+        public static string UintToString(uint data)
+        {
+            return data + "";
+        }
+
+        public static string UlongToString(ulong data)
+        {
+            return data + "";
+        }
+
+        public static string UshortToString(ushort data)
+        {
+            return data + "";
+        }
+
+        public static string CharToString(char data)
+        {
+            return data + "";
         }
 
         private static K ArrayToString<K>(object data, EvalType eval, char collectionDelimiter)

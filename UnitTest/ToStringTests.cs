@@ -71,6 +71,69 @@ namespace UnitTest
             Assert.AreEqual(original + "", converted);
         }
 
+        [TestMethod]
+        public void SbyteToStringDataField()
+        {
+            sbyte original = -25;
+            DataField<sbyte> field = new DataField<sbyte>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
+        [TestMethod]
+        public void LongToStringDataField()
+        {
+            long original = -2923338989098908989;
+            DataField<long> field = new DataField<long>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
+        [TestMethod]
+        public void ShortToStringDataField()
+        {
+            short original = -28989;
+            DataField<short> field = new DataField<short>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
+        [TestMethod]
+        public void UintToStringDataField()
+        {
+            uint original = 2923338989;
+            DataField<uint> field = new DataField<uint>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
+        [TestMethod]
+        public void UlongToStringDataField()
+        {
+            ulong original = 2923338989098908989;
+            DataField<ulong> field = new DataField<ulong>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
+        [TestMethod]
+        public void UshortToStringDataField()
+        {
+            ushort original = 223;
+            DataField<ushort> field = new DataField<ushort>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
+        [TestMethod]
+        public void CharToStringDataField()
+        {
+            char original = 'd';
+            DataField<char> field = new DataField<char>(original);
+            string converted = field.ToType<string>();
+            Assert.AreEqual(original + "", converted);
+        }
+
         #region Array Tests
         [TestMethod]
         public void StringArrayToStringDataField()
