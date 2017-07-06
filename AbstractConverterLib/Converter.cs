@@ -31,6 +31,31 @@ namespace AbstractConverterLib
         {
             set => BoolToString = value;
         }
+
+        public Func<byte, string> ByteToStringMethod
+        {
+            set => ByteToString = value;
+        }
+
+        public Func<int, string> IntToStringMethod
+        {
+            set => IntToString = value;
+        }
+
+        public Func<float, string> FloatToStringMethod
+        {
+            set => FloatToString = value;
+        }
+
+        public Func<double, string> DoubleToStringMethod
+        {
+            set => DoubleToString = value;
+        }
+
+        public Func<decimal, string> DecimalToStringMethod
+        {
+            set => DecimalToString = value;
+        }
         #endregion
     }
 }
