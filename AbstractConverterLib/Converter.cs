@@ -30,6 +30,12 @@ namespace AbstractConverterLib
             router.AddMethod<ushort, string>(ConvToString.UshortToString);
             router.AddMethod<char, string>(ConvToString.CharToString);
             #endregion
+
+            #region Default To Int Methods
+            router.AddMethod<int, int>(ConvToInt.IntToInt);
+            router.AddMethod<string, int>(ConvToInt.StringToIntZeroIfEmptyOrUnconvertable);
+            router.AddMethod<bool, int>(ConvToInt.BoolToInt);
+            #endregion
         }
 
         public OUT Conv<IN, OUT>(IN dataIn)
