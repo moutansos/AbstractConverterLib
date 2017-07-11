@@ -31,5 +31,16 @@ namespace AbstractConverterLib
             }
             return 0;
         }
+
+        public static int ByteToInt(byte data)
+        {
+            return data;
+        }
+
+        public static int FloatToIntRoundDown(float data)
+        {
+            //TODO: Validate that these values can be casted without worry of exceptions or data corruption
+            return (int)Math.Floor(data);
+        }
     }
 }

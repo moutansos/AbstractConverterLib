@@ -35,6 +35,7 @@ namespace AbstractConverterLib
             router.AddMethod<int, int>(ConvToInt.IntToInt);
             router.AddMethod<string, int>(ConvToInt.StringToIntZeroIfEmptyOrUnconvertable);
             router.AddMethod<bool, int>(ConvToInt.BoolToInt);
+            router.AddMethod<byte, int>(ConvToInt.ByteToInt);
             #endregion
         }
 
