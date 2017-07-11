@@ -47,5 +47,25 @@ namespace UnitTest
             Assert.AreEqual(0, converted);
         }
         #endregion
+
+        #region Byte To Int Tests
+        [TestMethod]
+        public void ByteToIntConverterObj()
+        {
+            byte original = 248;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<byte, int>(original);
+            Assert.AreEqual(original, converted);
+        }
+
+        [TestMethod]
+        public void ByteToIntConverterObjSingleParam()
+        {
+            byte original = 248;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(original, converted);
+        }
+        #endregion
     }
 }
