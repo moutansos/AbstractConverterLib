@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AbstractConverterLib
 {
-    static class ConvToInt
+    public static class ConvToInt
     {
         public static int IntToInt(int data)
         {
@@ -41,6 +41,12 @@ namespace AbstractConverterLib
         {
             //TODO: Validate that these values can be casted without worry of exceptions or data corruption
             return (int)Math.Floor(data);
+        }
+
+        public static int FloatToIntRoundUp(float data)
+        {
+            //TODO: Validate that these values can ve casted without worry of exceptions or data corruption
+            return (int)Math.Ceiling((double)data);
         }
     }
 }

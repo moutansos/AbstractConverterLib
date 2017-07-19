@@ -67,5 +67,46 @@ namespace UnitTest
             Assert.AreEqual(original, converted);
         }
         #endregion
+
+        #region Float To Int Tests
+        [TestMethod]
+        public void FloatToIntRoundDownConverterObj()
+        {
+            float original = 1.3423F;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<float, int>(original);
+            Assert.AreEqual(1, converted);
+        }
+
+        [TestMethod]
+        public void FloatToIntRoundDownSingleParam()
+        {
+            float original = 1.3423F;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(1, converted);
+        }
+
+        [TestMethod]
+        public void FloatToIntRoundUpConverterObj()
+        {
+            float original = 1.3423F;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<float, int>(ConvToInt.FloatToIntRoundUp);
+            int converted = conv.Conv<float, int>(original);
+            Assert.AreEqual(2, converted);
+        }
+
+        [TestMethod]
+        public void FloatToIntRoundUpSingleParam()
+        {
+            float original = 1.3423F;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<float, int>(ConvToInt.FloatToIntRoundUp);
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(2, converted);
+        }
+        #endregion
     }
 }
+ 

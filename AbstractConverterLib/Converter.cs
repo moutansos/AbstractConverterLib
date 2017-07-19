@@ -36,6 +36,7 @@ namespace AbstractConverterLib
             router.AddMethod<string, int>(ConvToInt.StringToIntZeroIfEmptyOrUnconvertable);
             router.AddMethod<bool, int>(ConvToInt.BoolToInt);
             router.AddMethod<byte, int>(ConvToInt.ByteToInt);
+            router.AddMethod<float, int>(ConvToInt.FloatToIntRoundDown);
             #endregion
         }
 
@@ -61,6 +62,11 @@ namespace AbstractConverterLib
             {
                 throw new UnableToConvertTypeException("Unable to convert " + dataIn.GetType() + " to " + typeof(OUT));
             }
+        }
+
+        public void Set<IN, OUT>(Func<IN, OUT> method)
+        {
+            router.AddMethod(method);
         }
     }
 
