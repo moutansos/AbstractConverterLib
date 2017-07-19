@@ -48,5 +48,18 @@ namespace AbstractConverterLib
             //TODO: Validate that these values can ve casted without worry of exceptions or data corruption
             return (int)Math.Ceiling((double)data);
         }
+
+
+        public static int DoubleToIntRoundDown(double data)
+        {
+            //TODO: Validate that these values can be casted without worry of exceptions or data corruption
+            return (int)Math.Floor(data);
+        }
+
+        public static int DoubleToIntRoundUp(double data)
+        {
+            //TODO: Validate that these values can ve casted without worry of exceptions or data corruption
+            return (int)Math.Ceiling(data);
+        }
     }
 }

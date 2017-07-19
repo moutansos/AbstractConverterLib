@@ -107,6 +107,46 @@ namespace UnitTest
             Assert.AreEqual(2, converted);
         }
         #endregion
+
+        #region Double To Int Tests
+        [TestMethod]
+        public void DoubleToIntRoundDownConverterObj()
+        {
+            double original = 1.3423;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<double, int>(original);
+            Assert.AreEqual(1, converted);
+        }
+
+        [TestMethod]
+        public void DoubleToIntRoundDownSingleParam()
+        {
+            double original = 1.3423;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(1, converted);
+        }
+
+        [TestMethod]
+        public void DoubleToIntRoundUpConverterObj()
+        {
+            double original = 1.3423F;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<double, int>(ConvToInt.DoubleToIntRoundUp);
+            int converted = conv.Conv<double, int>(original);
+            Assert.AreEqual(2, converted);
+        }
+
+        [TestMethod]
+        public void DoubleToIntRoundUpSingleParam()
+        {
+            double original = 1.3423;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<double, int>(ConvToInt.DoubleToIntRoundUp);
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(2, converted);
+        }
+        #endregion
     }
 }
  
