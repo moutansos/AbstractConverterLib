@@ -130,7 +130,7 @@ namespace UnitTest
         [TestMethod]
         public void DoubleToIntRoundUpConverterObj()
         {
-            double original = 1.3423F;
+            double original = 1.3423;
             AbstractConverter conv = new AbstractConverter();
             conv.Set<double, int>(ConvToInt.DoubleToIntRoundUp);
             int converted = conv.Conv<double, int>(original);
@@ -143,6 +143,46 @@ namespace UnitTest
             double original = 1.3423;
             AbstractConverter conv = new AbstractConverter();
             conv.Set<double, int>(ConvToInt.DoubleToIntRoundUp);
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(2, converted);
+        }
+        #endregion
+
+        #region Decimal To Int Tests
+        [TestMethod]
+        public void DecimalToIntRoundDownConverterObj()
+        {
+            decimal original = 1.3423M;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<decimal, int>(original);
+            Assert.AreEqual(1, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToIntRoundDownSingleParam()
+        {
+            decimal original = 1.3423M;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(1, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToIntRoundUpConverterObj()
+        {
+            decimal original = 1.3423M;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<decimal, int>(ConvToInt.DecimalToIntRoundUp);
+            int converted = conv.Conv<decimal, int>(original);
+            Assert.AreEqual(2, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToIntRoundUpSingleParam()
+        {
+            decimal original = 1.3423M;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<decimal, int>(ConvToInt.DecimalToIntRoundUp);
             int converted = conv.Conv<int>(original);
             Assert.AreEqual(2, converted);
         }

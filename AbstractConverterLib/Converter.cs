@@ -38,6 +38,7 @@ namespace AbstractConverterLib
             router.AddMethod<byte, int>(ConvToInt.ByteToInt);
             router.AddMethod<float, int>(ConvToInt.FloatToIntRoundDown);
             router.AddMethod<double, int>(ConvToInt.DoubleToIntRoundDown);
+            router.AddMethod<decimal, int>(ConvToInt.DecimalToIntRoundDown);
             #endregion
         }
 
