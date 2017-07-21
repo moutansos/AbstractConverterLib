@@ -73,6 +73,9 @@ namespace AbstractConverterLib
             return (int)Math.Ceiling(data);
         }
 
-
+        public static int SbyteToInt(sbyte data)
+        {
+            return data; //No conversion necessary. Sbytes are smaller than integers.
+        }
     }
 }

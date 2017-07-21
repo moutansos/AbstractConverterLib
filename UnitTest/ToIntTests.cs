@@ -187,6 +187,26 @@ namespace UnitTest
             Assert.AreEqual(2, converted);
         }
         #endregion
+
+        #region Sbyte To Int Tests
+        [TestMethod]
+        public void SbyteToIntConverterObj()
+        {
+            sbyte original = -28;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<sbyte, int>(original);
+            Assert.AreEqual(original, converted);
+        }
+
+        [TestMethod]
+        public void SbyteToIntConverterObjSingleParam()
+        {
+            sbyte original = -8;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(original, converted);
+        }
+        #endregion
     }
 }
  
