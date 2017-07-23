@@ -77,5 +77,17 @@ namespace AbstractConverterLib
         {
             return data; //No conversion necessary. Sbytes are smaller than integers.
         }
+
+        public static int LongToInt(long data)
+        {
+            if(data >= int.MinValue && data <= int.MaxValue)
+            {
+                return Convert.ToInt32(data);
+            }
+            else
+            {
+                throw new UnconvertableDataException("The input value of " + data + " is outside the range of int");
+            }
+        }
     }
 }

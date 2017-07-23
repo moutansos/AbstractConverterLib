@@ -207,6 +207,26 @@ namespace UnitTest
             Assert.AreEqual(original, converted);
         }
         #endregion
+
+        #region Long To Int Tests
+        [TestMethod]
+        public void LongToIntConverterObj()
+        {
+            long original = -28;
+            AbstractConverter conv = new AbstractConverter();
+            long converted = conv.Conv<long, int>(original);
+            Assert.AreEqual(original, converted);
+        }
+
+        [TestMethod]
+        public void LongToIntConverterObjSingleParam()
+        {
+            long original = -8;
+            AbstractConverter conv = new AbstractConverter();
+            long converted = conv.Conv<int>(original);
+            Assert.AreEqual(original, converted);
+        }
+        #endregion
     }
 }
  

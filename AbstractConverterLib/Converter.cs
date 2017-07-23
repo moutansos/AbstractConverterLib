@@ -40,6 +40,7 @@ namespace AbstractConverterLib
             router.AddMethod<double, int>(ConvToInt.DoubleToIntRoundDown);
             router.AddMethod<decimal, int>(ConvToInt.DecimalToIntRoundDown);
             router.AddMethod<sbyte, int>(ConvToInt.SbyteToInt);
+            router.AddMethod<long, int>(ConvToInt.LongToInt);
             #endregion
         }
 
