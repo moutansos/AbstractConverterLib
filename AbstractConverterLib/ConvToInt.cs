@@ -94,5 +94,17 @@ namespace AbstractConverterLib
         {
             return data; //No conversion necessary. Value is small enough to be safely put into integer
         }
+
+        public static int UintToInt(uint data)
+        {
+            if(data <= int.MaxValue)
+            {
+                return Convert.ToInt32(data);
+            }
+            else
+            {
+                throw new UnconvertableDataException("The input falue of " + data + " is too big for a standard int");
+            }
+        }
     }
 }
