@@ -214,7 +214,7 @@ namespace UnitTest
         {
             long original = -28;
             AbstractConverter conv = new AbstractConverter();
-            long converted = conv.Conv<long, int>(original);
+            int converted = conv.Conv<long, int>(original);
             Assert.AreEqual(original, converted);
         }
 
@@ -223,7 +223,27 @@ namespace UnitTest
         {
             long original = -8;
             AbstractConverter conv = new AbstractConverter();
-            long converted = conv.Conv<int>(original);
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(original, converted);
+        }
+        #endregion
+
+        #region Short To Int Tests
+        [TestMethod]
+        public void ShortToIntConverterObj()
+        {
+            short original = -28;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<short, int>(original);
+            Assert.AreEqual(original, converted);
+        }
+
+        [TestMethod]
+        public void ShortToIntConverterObjSingleParam()
+        {
+            short original = -8;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
             Assert.AreEqual(original, converted);
         }
         #endregion

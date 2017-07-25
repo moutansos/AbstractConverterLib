@@ -89,5 +89,10 @@ namespace AbstractConverterLib
                 throw new UnconvertableDataException("The input value of " + data + " is outside the range of int");
             }
         }
+
+        public static int ShortToInt(short data)
+        {
+            return data; //No conversion necessary. Value is small enough to be safely put into integer
+        }
     }
 }
