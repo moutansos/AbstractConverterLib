@@ -118,5 +118,10 @@ namespace AbstractConverterLib
                 throw new UnconvertableDataException("The input value of " + data + " is too big for a standard int");
             }
         }
+
+        public static int UshortToInt(ushort data)
+        {
+            return data;
+        }
     }
 }

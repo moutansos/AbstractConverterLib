@@ -293,6 +293,25 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
+
+        #region Ushort To Int Tests
+        [TestMethod]
+        public void UshortToIntConverterObj()
+        {
+            ushort original = 28234;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<ushort, int>(original);
+            Assert.AreEqual(28234, converted);
+        }
+
+        [TestMethod]
+        public void UshortToIntConverterObjSingleParam()
+        {
+            ushort original = 8324;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(8324, converted);
+        }
+        #endregion
     }
 }
- 
