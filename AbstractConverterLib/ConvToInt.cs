@@ -103,7 +103,19 @@ namespace AbstractConverterLib
             }
             else
             {
-                throw new UnconvertableDataException("The input falue of " + data + " is too big for a standard int");
+                throw new UnconvertableDataException("The input value of " + data + " is too big for a standard int");
+            }
+        }
+
+        public static int UlongToInt(ulong data)
+        {
+            if(data <= int.MaxValue)
+            {
+                return Convert.ToInt32(data);
+            }
+            else
+            {
+                throw new UnconvertableDataException("The input value of " + data + " is too big for a standard int");
             }
         }
     }

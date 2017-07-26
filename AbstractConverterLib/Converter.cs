@@ -43,6 +43,7 @@ namespace AbstractConverterLib
             router.AddMethod<long, int>(ConvToInt.LongToInt);
             router.AddMethod<short, int>(ConvToInt.ShortToInt);
             router.AddMethod<uint, int>(ConvToInt.UintToInt);
+            router.AddMethod<ulong, int>(ConvToInt.UlongToInt);
             #endregion
         }
 

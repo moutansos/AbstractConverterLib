@@ -271,6 +271,28 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
+
+        #region Ulong To Int Tests
+        [TestMethod]
+        public void UlongToIntConverterObj()
+        {
+            ulong original = 2823434;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<ulong, int>(original);
+            Assert.AreEqual(2823434, converted);
+        }
+
+        [TestMethod]
+        public void UlongToIntConverterObjSingleParam()
+        {
+            ulong original = 832438;
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(832438, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
     }
 }
  
