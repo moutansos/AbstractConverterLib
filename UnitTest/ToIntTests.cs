@@ -313,5 +313,25 @@ namespace UnitTest
             Assert.AreEqual(8324, converted);
         }
         #endregion
+
+        #region Char To Int Tests
+        [TestMethod]
+        public void CharToIntRawConverterObj()
+        {
+            char original = 'a';
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<ushort, int>(original);
+            Assert.AreEqual(97, converted);
+        }
+
+        [TestMethod]
+        public void CharToIntRawConverterObjSingleParam()
+        {
+            char original = '1';
+            AbstractConverter conv = new AbstractConverter();
+            int converted = conv.Conv<int>(original);
+            Assert.AreEqual(49, converted);
+        }
+        #endregion
     }
 }

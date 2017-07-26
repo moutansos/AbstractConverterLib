@@ -123,5 +123,10 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static int CharToIntRaw(char data)
+        {
+            return data;
+        }
     }
 }
