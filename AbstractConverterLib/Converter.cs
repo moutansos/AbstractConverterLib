@@ -47,6 +47,10 @@ namespace AbstractConverterLib
             router.AddMethod<ushort, int>(ConvToInt.UshortToInt);
             router.AddMethod<char, int>(ConvToInt.CharToIntRaw);
             #endregion
+
+            #region Default To Bool Methods
+            router.AddMethod<bool, bool>(ConvToBool.BoolToBool);
+            #endregion
         }
 
         public OUT Conv<IN, OUT>(IN dataIn)

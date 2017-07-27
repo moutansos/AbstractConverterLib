@@ -43,6 +43,7 @@
     <Compile Include="Config\ConverterConfig.cs" />
     <Compile Include="Config\DictionaryToStringConfig.cs" />
     <Compile Include="Converter.cs" />
+    <Compile Include="ConvToBool.cs" />
     <Compile Include="ConvToInt.cs" />
     <Compile Include="ConvToString.cs" />
     <Compile Include="DataField.cs" />

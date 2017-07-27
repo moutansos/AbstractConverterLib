@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AbstractConverterLib
 {
-    static class ConvToString
+    public static class ConvToString
     {
         public static OUT Conv<OUT>(object dataIn, Type dataInType, EvalType type, char collectionDelimiter)
         {
