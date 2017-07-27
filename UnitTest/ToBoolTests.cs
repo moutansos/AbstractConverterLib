@@ -47,5 +47,25 @@ namespace UnitTest
             Assert.AreEqual(false, converted);
         }
         #endregion
+
+        #region Int To Bool Tests
+        [TestMethod]
+        public void IntToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            int original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<int, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void IntToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            int original = -23;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+        #endregion
     }
 }

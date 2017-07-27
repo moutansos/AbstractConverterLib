@@ -17,5 +17,14 @@ namespace AbstractConverterLib
         {
             return !data;
         }
+
+        public static bool IntToBoolOneOrZeroFalseIfOther(int data)
+        {
+            if(data == 1)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

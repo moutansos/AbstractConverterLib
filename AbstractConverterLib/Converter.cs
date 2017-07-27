@@ -50,6 +50,7 @@ namespace AbstractConverterLib
 
             #region Default To Bool Methods
             router.AddMethod<bool, bool>(ConvToBool.BoolToBool);
+            router.AddMethod<int, bool>(ConvToBool.IntToBoolOneOrZeroFalseIfOther);
             #endregion
         }
 
