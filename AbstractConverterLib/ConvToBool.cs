@@ -26,5 +26,30 @@ namespace AbstractConverterLib
             }
             return false;
         }
+
+        public static bool IntToBoolOneOrZeroUnconvertabeIfOther(int data)
+        {
+            if(data == 1)
+            {
+                return true;
+            }
+            else if(data == 0)
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
+        }
+
+        public static bool IntToBoolGreaterThanZeroTrueLessThanFalse(int data)
+        {
+            if(data > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
