@@ -51,5 +51,27 @@ namespace AbstractConverterLib
                 return false;
             }
         }
+
+        public static bool ByteToBoolOneOrZeroFalseIfOther(byte data)
+        {
+            if (data == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool ByteToBoolOneOrZeroUnconvertabeIfOther(byte data)
+        {
+            if (data == 1)
+            {
+                return true;
+            }
+            else if (data == 0)
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
+        }
     }
 }

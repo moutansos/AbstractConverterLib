@@ -109,5 +109,47 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
+
+        #region Byte To Bool Tests
+        [TestMethod]
+        public void ByteToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            byte original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<byte, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void ByteToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            byte original = -0;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void ByteToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            byte original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<byte, bool>(ConvToBool.ByteToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<byte, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void ByteToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            byte original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<byte, bool>(ConvToBool.ByteToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
     }
 }
