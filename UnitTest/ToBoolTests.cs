@@ -92,7 +92,7 @@ namespace UnitTest
         {
             int original = 1;
             AbstractConverter conv = new AbstractConverter();
-            conv.Set<int, bool>(ConvToBool.IntToBoolOneOrZeroFalseIfOther);
+            conv.Set<int, bool>(ConvToBool.IntToBoolGreaterThanZeroTrueLessThanFalse);
             bool converted = conv.Conv<int, bool>(original);
             Assert.AreEqual(true, converted);
         }
@@ -102,7 +102,7 @@ namespace UnitTest
         {
             int original = -345;
             AbstractConverter conv = new AbstractConverter();
-            conv.Set<int, bool>(ConvToBool.IntToBoolOneOrZeroFalseIfOther);
+            conv.Set<int, bool>(ConvToBool.IntToBoolGreaterThanZeroTrueLessThanFalse);
             bool converted = conv.Conv<bool>(original);
             Assert.AreEqual(false, converted);
         }
@@ -145,6 +145,68 @@ namespace UnitTest
             byte original = 0;
             AbstractConverter conv = new AbstractConverter();
             conv.Set<byte, bool>(ConvToBool.ByteToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
+
+        #region Float To Bool Tests
+        [TestMethod]
+        public void FloatToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            float original = 1F;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<float, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void FloatToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            float original = -23.77F;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void FloatToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            float original = 1F;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<float, bool>(ConvToBool.FloatToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<float, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void FloatToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            float original = 0F;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<float, bool>(ConvToBool.FloatToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void FloatToBoolGreaterThanZeroTrueLessThanFalseConverterObj()
+        {
+            float original = 1.532324F;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<float, bool>(ConvToBool.FloatToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<float, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void FloatToBoolGreaterThanZeroTrueLessThanFalseConverterObjSingleParam()
+        {
+            float original = -345.349203F;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<float, bool>(ConvToBool.FloatToBoolGreaterThanZeroTrueLessThanFalse);
             bool converted = conv.Conv<bool>(original);
             Assert.AreEqual(false, converted);
         }
