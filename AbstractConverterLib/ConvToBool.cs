@@ -85,11 +85,11 @@ namespace AbstractConverterLib
 
         public static bool FloatToBoolOneOrZeroUnconvertabeIfOther(float data)
         {
-            if (data == 1)
+            if (data == 1F)
             {
                 return true;
             }
-            else if (data == 0)
+            else if (data == 0F)
             {
                 return false;
             }
@@ -98,7 +98,41 @@ namespace AbstractConverterLib
 
         public static bool FloatToBoolGreaterThanZeroTrueLessThanFalse(float data)
         {
-            if (data > 0)
+            if (data > 0F)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool DoubleToBoolOneOrZeroFalseIfOther(double data)
+        {
+            if (data == 1D)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool DoubleToBoolOneOrZeroUnconvertabeIfOther(double data)
+        {
+            if (data == 1D)
+            {
+                return true;
+            }
+            else if (data == 0D)
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
+        }
+
+        public static bool DoubleToBoolGreaterThanZeroTrueLessThanFalse(double data)
+        {
+            if (data > 0D)
             {
                 return true;
             }
