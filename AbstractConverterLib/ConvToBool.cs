@@ -141,5 +141,39 @@ namespace AbstractConverterLib
                 return false;
             }
         }
+
+        public static bool DecimalToBoolOneOrZeroFalseIfOther(decimal data)
+        {
+            if (data == 1m)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool DecimalToBoolOneOrZeroUnconvertabeIfOther(decimal data)
+        {
+            if (data == 1m)
+            {
+                return true;
+            }
+            else if (data == 0m)
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
+        }
+
+        public static bool DecimalToBoolGreaterThanZeroTrueLessThanFalse(decimal data)
+        {
+            if (data > 0m)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

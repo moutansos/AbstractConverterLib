@@ -213,7 +213,7 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
-
+        
         #region Double To Bool Tests
         [TestMethod]
         public void DoubleToBoolOneOrZeroFalseIfOtherConverterObj()
@@ -269,6 +269,68 @@ namespace UnitTest
             double original = -345.349203D;
             AbstractConverter conv = new AbstractConverter();
             conv.Set<double, bool>(ConvToBool.DoubleToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
+
+        #region Decimal To Bool Tests
+        [TestMethod]
+        public void DecimalToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            decimal original = 1m;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<decimal, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            decimal original = -232343242342342342234234234.77m;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            decimal original = 1m;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<decimal, bool>(ConvToBool.DecimalToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<decimal, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            decimal original = 0m;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<decimal, bool>(ConvToBool.DecimalToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToBoolGreaterThanZeroTrueLessThanFalseConverterObj()
+        {
+            decimal original = 1.532324m;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<decimal, bool>(ConvToBool.DecimalToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<decimal, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToBoolGreaterThanZeroTrueLessThanFalseConverterObjSingleParam()
+        {
+            decimal original = -345.34920724837423984723984723m;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<decimal, bool>(ConvToBool.DecimalToBoolGreaterThanZeroTrueLessThanFalse);
             bool converted = conv.Conv<bool>(original);
             Assert.AreEqual(false, converted);
         }
