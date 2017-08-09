@@ -337,5 +337,67 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
+
+        #region Sbyte To Bool Tests
+        [TestMethod]
+        public void SbyteToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            sbyte original = 1; //TODO: Change to sbyte literal
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<sbyte, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void SbyteToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            sbyte original = -23; //TODO: Change to sbyte literal
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void SbyteToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            sbyte original = 1; //TODO: Change to sbyte literal
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<sbyte, bool>(ConvToBool.SbyteToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<sbyte, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void SbyteToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            sbyte original = 0; //TODO: Change to sbyte literal
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<sbyte, bool>(ConvToBool.SbyteToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void SbyteToBoolGreaterThanZeroTrueLessThanFalseConverterObj()
+        {
+            sbyte original = 1; //TODO: Change to sbyte literal
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<sbyte, bool>(ConvToBool.SbyteToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<sbyte, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void SbyteToBoolGreaterThanZeroTrueLessThanFalseConverterObjSingleParam()
+        {
+            sbyte original = -34; //TODO: Change to sbyte literal
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<sbyte, bool>(ConvToBool.SbyteToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
     }
 }

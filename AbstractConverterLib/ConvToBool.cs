@@ -175,5 +175,39 @@ namespace AbstractConverterLib
                 return false;
             }
         }
+
+        public static bool SbyteToBoolOneOrZeroFalseIfOther(sbyte data)
+        {
+            if (data == 1) //TODO: Change to sbyte literal
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool SbyteToBoolOneOrZeroUnconvertabeIfOther(sbyte data)
+        {
+            if (data == 1) //TODO: Change to sbyte literal
+            {
+                return true;
+            }
+            else if (data == 0) //TODO: Change to sbyte literal
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
+        }
+
+        public static bool SbyteToBoolGreaterThanZeroTrueLessThanFalse(sbyte data)
+        {
+            if (data > 0) //TODO: Change to sbyte literal
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
