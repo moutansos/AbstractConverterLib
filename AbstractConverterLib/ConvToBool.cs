@@ -52,6 +52,8 @@ namespace AbstractConverterLib
             }
         }
 
+        //TODO: String to bool
+
         public static bool ByteToBoolOneOrZeroFalseIfOther(byte data)
         {
             if (data == 1)
@@ -178,7 +180,7 @@ namespace AbstractConverterLib
 
         public static bool SbyteToBoolOneOrZeroFalseIfOther(sbyte data)
         {
-            if (data == 1) //TODO: Change to sbyte literal
+            if (data == 1)
             {
                 return true;
             }
@@ -187,11 +189,11 @@ namespace AbstractConverterLib
 
         public static bool SbyteToBoolOneOrZeroUnconvertabeIfOther(sbyte data)
         {
-            if (data == 1) //TODO: Change to sbyte literal
+            if (data == 1)
             {
                 return true;
             }
-            else if (data == 0) //TODO: Change to sbyte literal
+            else if (data == 0)
             {
                 return false;
             }
@@ -200,7 +202,41 @@ namespace AbstractConverterLib
 
         public static bool SbyteToBoolGreaterThanZeroTrueLessThanFalse(sbyte data)
         {
-            if (data > 0) //TODO: Change to sbyte literal
+            if (data > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool LongToBoolOneOrZeroFalseIfOther(long data)
+        {
+            if (data == 1L)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool LongToBoolOneOrZeroUnconvertabeIfOther(long data)
+        {
+            if (data == 1L)
+            {
+                return true;
+            }
+            else if (data == 0L)
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
+        }
+
+        public static bool LongToBoolGreaterThanZeroTrueLessThanFalse(long data)
+        {
+            if (data > 0L)
             {
                 return true;
             }

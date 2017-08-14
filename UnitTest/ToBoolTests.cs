@@ -275,7 +275,7 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
-
+        
         #region Decimal To Bool Tests
         [TestMethod]
         public void DecimalToBoolOneOrZeroFalseIfOtherConverterObj()
@@ -337,7 +337,7 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
-
+        
         #region Sbyte To Bool Tests
         [TestMethod]
         public void SbyteToBoolOneOrZeroFalseIfOtherConverterObj()
@@ -393,6 +393,68 @@ namespace UnitTest
             sbyte original = -34; //TODO: Change to sbyte literal
             AbstractConverter conv = new AbstractConverter();
             conv.Set<sbyte, bool>(ConvToBool.SbyteToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
+
+        #region Long To Bool Tests
+        [TestMethod]
+        public void LongToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            long original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<long, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void LongToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            long original = -23;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void LongToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            long original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<long, bool>(ConvToBool.LongToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<long, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void LongToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            long original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<long, bool>(ConvToBool.LongToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void LongToBoolGreaterThanZeroTrueLessThanFalseConverterObj()
+        {
+            long original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<long, bool>(ConvToBool.LongToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<long, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void LongToBoolGreaterThanZeroTrueLessThanFalseConverterObjSingleParam()
+        {
+            int original = -345;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<long, bool>(ConvToBool.LongToBoolGreaterThanZeroTrueLessThanFalse);
             bool converted = conv.Conv<bool>(original);
             Assert.AreEqual(false, converted);
         }
