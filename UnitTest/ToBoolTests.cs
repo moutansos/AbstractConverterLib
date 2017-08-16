@@ -452,9 +452,71 @@ namespace UnitTest
         [TestMethod]
         public void LongToBoolGreaterThanZeroTrueLessThanFalseConverterObjSingleParam()
         {
-            int original = -345;
+            long original = -345;
             AbstractConverter conv = new AbstractConverter();
             conv.Set<long, bool>(ConvToBool.LongToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
+
+        #region Short To Bool Tests
+        [TestMethod]
+        public void ShortToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            short original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<short, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void ShortToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            short original = -23;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void ShortToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            short original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<short, bool>(ConvToBool.ShortToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<short, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void ShortToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            short original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<short, bool>(ConvToBool.ShortToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void ShortToBoolGreaterThanZeroTrueLessThanFalseConverterObj()
+        {
+            short original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<short, bool>(ConvToBool.ShortToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<short, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void ShortToBoolGreaterThanZeroTrueLessThanFalseConverterObjSingleParam()
+        {
+            short original = -345;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<short, bool>(ConvToBool.ShortToBoolGreaterThanZeroTrueLessThanFalse);
             bool converted = conv.Conv<bool>(original);
             Assert.AreEqual(false, converted);
         }
