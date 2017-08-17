@@ -58,6 +58,8 @@ namespace AbstractConverterLib
             router.AddMethod<sbyte, bool>(ConvToBool.SbyteToBoolOneOrZeroFalseIfOther);
             router.AddMethod<long, bool>(ConvToBool.LongToBoolOneOrZeroFalseIfOther);
             router.AddMethod<short, bool>(ConvToBool.ShortToBoolOneOrZeroFalseIfOther);
+            router.AddMethod<uint, bool>(ConvToBool.UintToBoolOneOrZeroFalseIfOther);
+            router.AddMethod<ulong, bool>(ConvToBool.UlongToBoolOneOrZeroFalseIfOther);
             #endregion
         }
 

@@ -279,5 +279,49 @@ namespace AbstractConverterLib
                 return false;
             }
         }
+
+        public static bool UintToBoolOneOrZeroFalseIfOther(uint data)
+        {
+            if (data == 1U)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool UintToBoolOneOrZeroUnconvertabeIfOther(uint data)
+        {
+            if (data == 1U)
+            {
+                return true;
+            }
+            else if (data == 0U)
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
+        }
+
+        public static bool UlongToBoolOneOrZeroFalseIfOther(ulong data)
+        {
+            if (data == 1UL)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool UlongToBoolOneOrZeroUnconvertabeIfOther(ulong data)
+        {
+            if (data == 1UL)
+            {
+                return true;
+            }
+            else if (data == 0UL)
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
+        }
     }
 }

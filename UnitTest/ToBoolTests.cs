@@ -123,7 +123,7 @@ namespace UnitTest
         [TestMethod]
         public void ByteToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
         {
-            byte original = -0;
+            byte original = 0;
             AbstractConverter conv = new AbstractConverter();
             bool converted = conv.Conv<bool>(original);
             Assert.AreEqual(false, converted);
@@ -517,6 +517,90 @@ namespace UnitTest
             short original = -345;
             AbstractConverter conv = new AbstractConverter();
             conv.Set<short, bool>(ConvToBool.ShortToBoolGreaterThanZeroTrueLessThanFalse);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
+
+        #region Uint To Bool Tests
+        [TestMethod]
+        public void UintToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            uint original = 1U;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<uint, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void UintToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            uint original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void UintToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            uint original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<uint, bool>(ConvToBool.UintToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<uint, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void UintToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            uint original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<uint, bool>(ConvToBool.UintToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
+
+        #region Ulong To Bool Tests
+        [TestMethod]
+        public void UlongToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            ulong original = 1UL;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<ulong, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void UlongToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            ulong original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void UlongToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            ulong original = 1UL;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<ulong, bool>(ConvToBool.UlongToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<ulong, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void UlongToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            ulong original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<ulong, bool>(ConvToBool.UlongToBoolOneOrZeroUnconvertabeIfOther);
             bool converted = conv.Conv<bool>(original);
             Assert.AreEqual(false, converted);
         }
