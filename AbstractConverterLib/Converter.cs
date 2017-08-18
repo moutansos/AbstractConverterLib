@@ -60,6 +60,7 @@ namespace AbstractConverterLib
             router.AddMethod<short, bool>(ConvToBool.ShortToBoolOneOrZeroFalseIfOther);
             router.AddMethod<uint, bool>(ConvToBool.UintToBoolOneOrZeroFalseIfOther);
             router.AddMethod<ulong, bool>(ConvToBool.UlongToBoolOneOrZeroFalseIfOther);
+            router.AddMethod<ushort, bool>(ConvToBool.UshortToBoolOneOrZeroFalseIfOther);
             #endregion
         }
 

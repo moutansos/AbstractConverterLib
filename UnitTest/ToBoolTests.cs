@@ -607,5 +607,47 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
+
+        #region Ushort To Bool Tests
+        [TestMethod]
+        public void UshortToBoolOneOrZeroFalseIfOtherConverterObj()
+        {
+            ushort original = 1;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<ushort, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void UshortToBoolOneOrZeroFalseIfOtherConverterObjSingleParam()
+        {
+            ulong original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void UshortToBoolOneOrZeroUnconvertabeIfOtherConverterObj()
+        {
+            ulong original = 1UL;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<ulong, bool>(ConvToBool.UlongToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<ulong, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void UshortToBoolOneOrZeroUnconvertabeIfOtherConverterObjSingleParam()
+        {
+            ulong original = 0;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<ulong, bool>(ConvToBool.UlongToBoolOneOrZeroUnconvertabeIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
     }
 }
