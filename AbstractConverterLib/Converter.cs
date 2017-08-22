@@ -61,6 +61,7 @@ namespace AbstractConverterLib
             router.AddMethod<uint, bool>(ConvToBool.UintToBoolOneOrZeroFalseIfOther);
             router.AddMethod<ulong, bool>(ConvToBool.UlongToBoolOneOrZeroFalseIfOther);
             router.AddMethod<ushort, bool>(ConvToBool.UshortToBoolOneOrZeroFalseIfOther);
+            router.AddMethod<char, bool>(ConvToBool.CharToBoolFalseIfOther);
             #endregion
         }
 

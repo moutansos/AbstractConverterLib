@@ -345,5 +345,27 @@ namespace AbstractConverterLib
             }
             throw new UnconvertableDataException("Invalid data value of " + data + " to be converted to boolean.");
         }
+
+        public static bool CharToBoolWithUnconvertable(char data)
+        {
+            if (data == 'T' || data == '1' || data == 'Y')
+            {
+                return true;
+            }
+            else if (data == 'F' || data == '0' || data == 'N')
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("The data value of \'" + data + "\' is unknown.");
+        }
+
+        public static bool CharToBoolFalseIfOther(char data)
+        {
+            if (data == 'T' || data == '1' || data == 'Y')
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -649,5 +649,115 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
+
+        #region Char To Bool Tests
+        [TestMethod]
+        public void CharToBoolWithUnconvertableConverterObj1()
+        {
+            char original = 'T';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<char, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolWithUnconvertableConverterSingleParam1()
+        {
+            char original = 'T';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolWithUnconvertableConverterObj2()
+        {
+            char original = '1';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<char, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolWithUnconvertableConverterSingleParam2()
+        {
+            char original = '1';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolWithUnconvertableConverterObj3()
+        {
+            char original = 'Y';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<char, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolWithUnconvertableConverterSingleParam3()
+        {
+            char original = 'Y';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolFalseIfOtherConverterObj1()
+        {
+            char original = 'F';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<char, bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolFalseIfOtherConverterSingleParam1()
+        {
+            char original = 'F';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolFalseIfOtherConverterObj2()
+        {
+            char original = '0';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<char, bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolFalseIfOtherConverterSingleParam2()
+        {
+            char original = '0';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolFalseIfOtherConverterObj3()
+        {
+            char original = 'N';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<char, bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void CharToBoolFalseIfOtherConverterSingleParam3()
+        {
+            char original = 'N';
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+        #endregion
     }
 }
