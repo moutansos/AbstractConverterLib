@@ -51,6 +51,7 @@ namespace AbstractConverterLib
             #region Default To Bool Methods
             router.AddMethod<bool, bool>(ConvToBool.BoolToBool);
             router.AddMethod<int, bool>(ConvToBool.IntToBoolOneOrZeroFalseIfOther);
+            router.AddMethod<string, bool>(ConvToBool.StringToBoolFalseIfOther);
             router.AddMethod<byte, bool>(ConvToBool.ByteToBoolOneOrZeroFalseIfOther);
             router.AddMethod<float, bool>(ConvToBool.FloatToBoolOneOrZeroFalseIfOther);
             router.AddMethod<double, bool>(ConvToBool.DoubleToBoolOneOrZeroFalseIfOther);

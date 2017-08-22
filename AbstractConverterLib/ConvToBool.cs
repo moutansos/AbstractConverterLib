@@ -52,7 +52,43 @@ namespace AbstractConverterLib
             }
         }
 
-        //TODO: String to bool
+        public static bool StringToBoolFalseIfOther(string data)
+        {
+            data = data.ToLower();
+            data = data.Trim();
+            if(data == "true" ||
+               data == "yes" ||
+               data == "1" ||
+               data == "t" ||
+               data == "y")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool StringToBoolUnconvertableIfOther(string data)
+        {
+            data = data.ToLower();
+            data = data.Trim();
+            if (data == "true" ||
+               data == "yes" ||
+               data == "1" ||
+               data == "t" ||
+               data == "y")
+            {
+                return true;
+            }
+            else if(data == "false" ||
+                    data == "no" ||
+                    data == "0" ||
+                    data == "f" ||
+                    data == "n")
+            {
+                return false;
+            }
+            throw new UnconvertableDataException("The data value \"" + data + "\" was unconvertable");
+        }
 
         public static bool ByteToBoolOneOrZeroFalseIfOther(byte data)
         {

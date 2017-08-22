@@ -109,7 +109,49 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
-        
+
+        #region String To Bool Tests
+        [TestMethod]
+        public void StringToBoolFalseIfOtherConverterObj()
+        {
+            string original = "True";
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<string, bool>(original);
+            Assert.AreEqual(true, converted);
+        }
+
+        [TestMethod]
+        public void StringToBoolFalseIfOtherConverterObjSingleParam()
+        {
+            string original = "f";
+            AbstractConverter conv = new AbstractConverter();
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void StringToBoolUnconvertableIfOtherConverterObj()
+        {
+            string original = "false";
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<string, bool>(ConvToBool.StringToBoolUnconvertableIfOther);
+            bool converted = conv.Conv<string, bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        [TestMethod]
+        public void StringToBoolUnconvertableIfOtherConverterObjSingleParam()
+        {
+            string original = "0";
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<string, bool>(ConvToBool.StringToBoolUnconvertableIfOther);
+            bool converted = conv.Conv<bool>(original);
+            Assert.AreEqual(false, converted);
+        }
+
+        //TODO: Test Exceptions
+        #endregion
+
         #region Byte To Bool Tests
         [TestMethod]
         public void ByteToBoolOneOrZeroFalseIfOtherConverterObj()
