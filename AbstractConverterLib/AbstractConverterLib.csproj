@@ -46,7 +46,6 @@
     <Compile Include="ConvToBool.cs" />
     <Compile Include="ConvToInt.cs" />
     <Compile Include="ConvToString.cs" />
-    <Compile Include="DataField.cs" />
     <Compile Include="EvalType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnableToConvertTypeException.cs" />
