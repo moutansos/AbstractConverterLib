@@ -64,6 +64,10 @@ namespace AbstractConverterLib
             router.AddMethod<ushort, bool>(ConvToBool.UshortToBoolOneOrZeroFalseIfOther);
             router.AddMethod<char, bool>(ConvToBool.CharToBoolFalseIfOther);
             #endregion
+
+            #region Default To Float Methods
+            router.AddMethod<float, float>(ConvToFloat.FloatToFloat);
+            #endregion
         }
 
         public OUT Conv<IN, OUT>(IN dataIn)
