@@ -12,5 +12,25 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float StringToFloatZeroIfEmptyOrUnconvertable(string data)
+        {
+            data = data.Trim().TrimEnd(new char[] { 'F', 'f' });
+            if (float.TryParse(data, out float retData))
+            {
+                return retData;
+            }
+            return 0;
+        }
+
+        public static float StringToFloatExceptionIfUnconvertable(string data)
+        {
+            data = data.Trim().TrimEnd(new char[] { 'F', 'f' });
+            if (float.TryParse(data, out float retData))
+            {
+                return retData;
+            }
+            throw new UnconvertableDataException("Unable to convert \"" + data + "\" to a float.");
+        }
     }
 }

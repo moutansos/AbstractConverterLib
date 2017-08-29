@@ -15,13 +15,15 @@ namespace AbstractConverterLib
 
         public static int StringToIntZeroIfEmptyOrUnconvertable(string data)
         {
-            int retData = 0;
-            if(int.TryParse(data, out retData))
+            data = data.Trim();
+            if(int.TryParse(data, out int retData))
             {
                 return retData;
             }
             return 0;
         }
+
+        //TODO: Add unconvertable data exception on unable to parse (see float)
 
         public static int BoolToInt(bool data)
         {
