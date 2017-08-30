@@ -41,5 +41,10 @@ namespace AbstractConverterLib
             }
             return 0F;
         }
+
+        public static float ByteToFloat(byte data)
+        {
+            return data;
+        }
     }
 }
