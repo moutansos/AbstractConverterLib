@@ -32,5 +32,14 @@ namespace AbstractConverterLib
             }
             throw new UnconvertableDataException("Unable to convert \"" + data + "\" to a float.");
         }
+
+        public static float BoolToFloat(bool data)
+        {
+            if(data)
+            {
+                return 1F;
+            }
+            return 0F;
+        }
     }
 }

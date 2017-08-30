@@ -69,5 +69,25 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
+
+        #region Bool To Float Tests
+        [TestMethod]
+        public void BoolToFloatConverterObj()
+        {
+            bool original = true;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<bool, float>(original);
+            Assert.AreEqual(1F, converted);
+        }
+
+        [TestMethod]
+        public void BoolToFloatConverterObjSingleParam()
+        {
+            bool original = false;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(0F, converted);
+        }
+        #endregion
     }
 }
