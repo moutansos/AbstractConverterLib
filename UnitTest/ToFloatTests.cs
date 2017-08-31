@@ -129,5 +129,47 @@ namespace UnitTest
             Assert.AreEqual(-232423905F, converted);
         }
         #endregion
+
+        #region Double To Float Tests
+        [TestMethod]
+        public void DoubelToFloatDefaultIfUnconvertableConverterObj()
+        {
+            double original = 232423905D;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<double, float>(original);
+            Assert.AreEqual(232423905F, converted);
+        }
+
+        [TestMethod]
+        public void DoubleToFloatDefaultIfUnconvertableConverterObjSingleParam()
+        {
+            double original = -23242390532432444453234324324323423232442D;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(0F, converted);
+        }
+
+        [TestMethod]
+        public void DoubelToFloatExceptionIfUnconvertableConverterObj()
+        {
+            double original = 232423905D;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<double, float>(ConvToFloat.DoubleToFloatExceptionIfUnconvertable);
+            float converted = conv.Conv<double, float>(original);
+            Assert.AreEqual(232423905F, converted);
+        }
+
+        [TestMethod]
+        public void DoubleToFloatExceptionIfUnconvertableConverterObjSingleParam()
+        {
+            double original = -2324239053243244444D;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<double, float>(ConvToFloat.DoubleToFloatExceptionIfUnconvertable);
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(-2324239053243244444F, converted);
+        }
+
+        //TODO: Test exceptions
+        #endregion
     }
 }

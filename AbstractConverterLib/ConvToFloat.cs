@@ -51,5 +51,23 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float DoubleToFloatDefaultIfUnconvertable(double data)
+        {
+            if(data <= float.MaxValue && data >= float.MinValue)
+            {
+                return (float)data;
+            }
+            return 0F;
+        }
+
+        public static float DoubleToFloatExceptionIfUnconvertable(double data)
+        {
+            if (data <= float.MaxValue && data >= float.MinValue)
+            {
+                return (float)data;
+            }
+            throw new UnconvertableDataException("Unable to convert " + data + " to a float. The value doesn't fit in this data type.");
+        }
     }
 }
