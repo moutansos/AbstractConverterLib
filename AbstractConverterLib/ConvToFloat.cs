@@ -69,5 +69,29 @@ namespace AbstractConverterLib
             }
             throw new UnconvertableDataException("Unable to convert " + data + " to a float. The value doesn't fit in this data type.");
         }
+
+        public static float DecimalToFloatDefaultIfUnconvertable(decimal data)
+        {
+            try
+            {
+                return decimal.ToSingle(data);
+            }
+            catch(OverflowException ex)
+            {
+                return 0F;
+            }
+        }
+
+        public static float DecimalToFloatExceptionIfUnconvertable(decimal data)
+        {
+            try
+            {
+                return decimal.ToSingle(data);
+            }
+            catch (OverflowException)
+            {
+                throw new UnconvertableDataException("Unable to convert " + data + " to a float. The value doesn't fit in the data type.");
+            }
+        }
     }
 }

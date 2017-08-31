@@ -132,7 +132,7 @@ namespace UnitTest
 
         #region Double To Float Tests
         [TestMethod]
-        public void DoubelToFloatDefaultIfUnconvertableConverterObj()
+        public void DoubleToFloatDefaultIfUnconvertableConverterObj()
         {
             double original = 232423905D;
             AbstractConverter conv = new AbstractConverter();
@@ -165,6 +165,48 @@ namespace UnitTest
             double original = -2324239053243244444D;
             AbstractConverter conv = new AbstractConverter();
             conv.Set<double, float>(ConvToFloat.DoubleToFloatExceptionIfUnconvertable);
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(-2324239053243244444F, converted);
+        }
+
+        //TODO: Test exceptions
+        #endregion
+
+        #region Decimal To Float Tests
+        [TestMethod]
+        public void DecimalToFloatDefaultIfUnconvertableConverterObj()
+        {
+            decimal original = 93242390532233323432.34333322234234234333232342334M;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<decimal, float>(original);
+            Assert.AreEqual(93242390532233323432.34333322234234234333232342334F, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToFloatDefaultIfUnconvertableConverterObjSingleParam()
+        {
+            decimal original = -232423905324324M;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(-232423905324324F, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToFloatExceptionIfUnconvertableConverterObj()
+        {
+            decimal original = 232423905M;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<decimal, float>(ConvToFloat.DecimalToFloatExceptionIfUnconvertable);
+            float converted = conv.Conv<decimal, float>(original);
+            Assert.AreEqual(232423905F, converted);
+        }
+
+        [TestMethod]
+        public void DecimalToFloatExceptionIfUnconvertableConverterObjSingleParam()
+        {
+            decimal original = -2324239053243244444M;
+            AbstractConverter conv = new AbstractConverter();
+            conv.Set<decimal, float>(ConvToFloat.DecimalToFloatExceptionIfUnconvertable);
             float converted = conv.Conv<float>(original);
             Assert.AreEqual(-2324239053243244444F, converted);
         }
