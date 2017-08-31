@@ -106,7 +106,27 @@ namespace UnitTest
             byte original = 234;
             AbstractConverter conv = new AbstractConverter();
             float converted = conv.Conv<float>(original);
-            Assert.AreEqual(original, converted);
+            Assert.AreEqual(234F, converted);
+        }
+        #endregion
+
+        #region Int To Float Tests
+        [TestMethod]
+        public void IntToFloatConverterObj()
+        {
+            int original = 232423905;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<int, float>(original);
+            Assert.AreEqual(232423905F, converted);
+        }
+
+        [TestMethod]
+        public void IntToFloatConverterObjSingleParam()
+        {
+            int original = -232423905;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(-232423905F, converted);
         }
         #endregion
     }

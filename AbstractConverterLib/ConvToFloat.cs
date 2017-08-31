@@ -46,5 +46,10 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float IntToFloat(int data)
+        {
+            return data;
+        }
     }
 }

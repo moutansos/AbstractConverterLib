@@ -70,6 +70,7 @@ namespace AbstractConverterLib
             router.AddMethod<string, float>(ConvToFloat.StringToFloatZeroIfEmptyOrUnconvertable);
             router.AddMethod<bool, float>(ConvToFloat.BoolToFloat);
             router.AddMethod<byte, float>(ConvToFloat.ByteToFloat);
+            router.AddMethod<int, float>(ConvToFloat.IntToFloat);
             #endregion
         }
 
