@@ -213,5 +213,25 @@ namespace UnitTest
 
         //TODO: Test exceptions
         #endregion
+
+        #region Sbyte To Float Tests
+        [TestMethod]
+        public void SbyteToFloatConverterObj()
+        {
+            sbyte original = -43;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<sbyte, float>(original);
+            Assert.AreEqual(-43F, converted);
+        }
+
+        [TestMethod]
+        public void SbyteToFloatConverterObjSingleParam()
+        {
+            sbyte original = 56;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(56F, converted);
+        }
+        #endregion
     }
 }

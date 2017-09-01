@@ -93,5 +93,10 @@ namespace AbstractConverterLib
                 throw new UnconvertableDataException("Unable to convert " + data + " to a float. The value doesn't fit in the data type.");
             }
         }
+
+        public static float SbyteToFloat(sbyte data)
+        {
+            return data;
+        }
     }
 }

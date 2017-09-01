@@ -73,6 +73,7 @@ namespace AbstractConverterLib
             router.AddMethod<int, float>(ConvToFloat.IntToFloat);
             router.AddMethod<double, float>(ConvToFloat.DoubleToFloatDefaultIfUnconvertable);
             router.AddMethod<decimal, float>(ConvToFloat.DecimalToFloatDefaultIfUnconvertable);
+            router.AddMethod<sbyte, float>(ConvToFloat.SbyteToFloat);
             #endregion
         }
 
