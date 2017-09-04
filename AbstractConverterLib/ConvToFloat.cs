@@ -98,5 +98,10 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float LongToFloat(long data)
+        {
+            return data;
+        }
     }
 }
