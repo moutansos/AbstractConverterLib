@@ -103,5 +103,10 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float ShortToFloat(short data)
+        {
+            return data;
+        }
     }
 }

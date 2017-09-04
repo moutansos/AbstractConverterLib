@@ -253,5 +253,25 @@ namespace UnitTest
             Assert.AreEqual(56F, converted);
         }
         #endregion
+
+        #region Short To Float Tests
+        [TestMethod]
+        public void ShortToFloatConverterObj()
+        {
+            short original = -4332;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<short, float>(original);
+            Assert.AreEqual(-4332F, converted);
+        }
+
+        [TestMethod]
+        public void ShortToFloatConverterObjSingleParam()
+        {
+            short original = 56;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(56F, converted);
+        }
+        #endregion
     }
 }
