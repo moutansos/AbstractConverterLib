@@ -273,5 +273,25 @@ namespace UnitTest
             Assert.AreEqual(56F, converted);
         }
         #endregion
+
+        #region Uint To Float Tests
+        [TestMethod]
+        public void UintToFloatConverterObj()
+        {
+            uint original = 433232222;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<uint, float>(original);
+            Assert.AreEqual(433232222F, converted);
+        }
+
+        [TestMethod]
+        public void UintToFloatConverterObjSingleParam()
+        {
+            uint original = 56;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(56F, converted);
+        }
+        #endregion
     }
 }

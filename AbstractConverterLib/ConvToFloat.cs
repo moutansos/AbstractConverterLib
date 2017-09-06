@@ -108,5 +108,10 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float UintToFloat(uint data)
+        {
+            return data;
+        }
     }
 }
