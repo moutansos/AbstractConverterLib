@@ -113,5 +113,10 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float UlongToFloat(ulong data)
+        {
+            return data;
+        }
     }
 }

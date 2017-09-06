@@ -293,5 +293,25 @@ namespace UnitTest
             Assert.AreEqual(56F, converted);
         }
         #endregion
+
+        #region Ulong To Float Tests
+        [TestMethod]
+        public void UlongToFloatConverterObj()
+        {
+            ulong original = 4332444444444444323;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<ulong, float>(original);
+            Assert.AreEqual(4332444444444444323F, converted);
+        }
+
+        [TestMethod]
+        public void UlongToFloatConverterObjSingleParam()
+        {
+            ulong original = 56;
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(56F, converted);
+        }
+        #endregion
     }
 }
