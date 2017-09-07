@@ -78,6 +78,7 @@ namespace AbstractConverterLib
             router.AddMethod<short, float>(ConvToFloat.ShortToFloat);
             router.AddMethod<uint, float>(ConvToFloat.UintToFloat);
             router.AddMethod<ulong, float>(ConvToFloat.UlongToFloat);
+            router.AddMethod<ushort, float>(ConvToFloat.UshortToFloat);
             #endregion
         }
 

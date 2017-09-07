@@ -118,5 +118,10 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float UshortToFloat(ushort data)
+        {
+            return data;
+        }
     }
 }
