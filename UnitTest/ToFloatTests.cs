@@ -333,5 +333,25 @@ namespace UnitTest
             Assert.AreEqual(56F, converted);
         }
         #endregion
+
+        #region Char To Float Tests
+        [TestMethod]
+        public void CharToFloatRawConverterObj()
+        {
+            char original = 'a';
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<char, float>(original);
+            Assert.AreEqual(97F, converted);
+        }
+
+        [TestMethod]
+        public void CharToIntRawConverterObjSingleParam()
+        {
+            char original = '1';
+            AbstractConverter conv = new AbstractConverter();
+            float converted = conv.Conv<float>(original);
+            Assert.AreEqual(49F, converted);
+        }
+        #endregion
     }
 }

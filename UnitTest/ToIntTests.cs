@@ -320,7 +320,7 @@ namespace UnitTest
         {
             char original = 'a';
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<ushort, int>(original);
+            int converted = conv.Conv<char, int>(original);
             Assert.AreEqual(97, converted);
         }
 

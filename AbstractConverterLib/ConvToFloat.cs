@@ -123,5 +123,10 @@ namespace AbstractConverterLib
         {
             return data;
         }
+
+        public static float CharToFloat(char data)
+        {
+            return data;
+        }
     }
 }
