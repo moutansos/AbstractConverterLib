@@ -81,6 +81,15 @@ namespace AbstractConverterLib
             router.AddMethod<ushort, float>(ConvToFloat.UshortToFloat);
             router.AddMethod<char, float>(ConvToFloat.CharToFloat);
             #endregion
+
+            #region Default To Double Methods
+            router.AddMethod<double, double>(ConvToDouble.DoubleToDouble);
+            router.AddMethod<string, double>(ConvToDouble.StringToDoubleZeroIfEmptyOrUnconvertable);
+            router.AddMethod<bool, double>(ConvToDouble.BoolToDouble);
+            router.AddMethod<byte, double>(ConvToDouble.ByteToDouble);
+            router.AddMethod<int, double>(ConvToDouble.IntToDouble);
+            router.AddMethod<decimal, double>(ConvToDouble.DecimalToDoubleDefaultIfUnconvertable);
+            #endregion
         }
 
         public OUT Conv<IN, OUT>(IN dataIn)

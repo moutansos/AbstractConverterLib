@@ -54,6 +54,7 @@
     <Compile Include="ToStringTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToBoolTests.cs" />
+    <Compile Include="ToDoubleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
