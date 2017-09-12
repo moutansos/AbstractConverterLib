@@ -76,22 +76,22 @@ namespace AbstractConverterLib
             }
         }
 
-        public static float SbyteToFloat(sbyte data)
+        public static double SbyteToDouble(sbyte data)
         {
             return data;
         }
 
-        public static float LongToFloat(long data)
+        public static double LongToDouble(long data)
         {
             return data;
         }
 
-        public static float ShortToFloat(short data)
+        public static double ShortToDouble(short data)
         {
             return data;
         }
 
-        public static float UintToFloat(uint data)
+        public static double UintToDouble(uint data)
         {
             return data;
         }

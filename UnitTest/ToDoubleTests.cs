@@ -171,83 +171,83 @@ namespace UnitTest
         //TODO: Test exceptions
         #endregion
         
-        #region Sbyte To Float Tests
+        #region Sbyte To Double Tests
         [TestMethod]
-        public void SbyteToFloatConverterObj()
+        public void SbyteToDoubleConverterObj()
         {
             sbyte original = -43;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<sbyte, float>(original);
+            double converted = conv.Conv<sbyte, double>(original);
             Assert.AreEqual(-43F, converted);
         }
 
         [TestMethod]
-        public void SbyteToFloatConverterObjSingleParam()
+        public void SbyteToDoubleConverterObjSingleParam()
         {
             sbyte original = 56;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<float>(original);
-            Assert.AreEqual(56F, converted);
+            double converted = conv.Conv<double>(original);
+            Assert.AreEqual(56D, converted);
         }
         #endregion
 
         #region Long To Float Tests
         [TestMethod]
-        public void LongToFloatConverterObj()
+        public void LongToDoubleConverterObj()
         {
             long original = -4332444444444444323;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<long, float>(original);
-            Assert.AreEqual(-4332444444444444323F, converted);
+            double converted = conv.Conv<long, double>(original);
+            Assert.AreEqual(-4332444444444444323D, converted);
         }
 
         [TestMethod]
-        public void LongToFloatConverterObjSingleParam()
+        public void LongToDoubleConverterObjSingleParam()
         {
             long original = 56;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<float>(original);
-            Assert.AreEqual(56F, converted);
+            double converted = conv.Conv<double>(original);
+            Assert.AreEqual(56D, converted);
         }
         #endregion
 
-        #region Short To Float Tests
+        #region Short To Double Tests
         [TestMethod]
-        public void ShortToFloatConverterObj()
+        public void ShortToDoubleConverterObj()
         {
             short original = -4332;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<short, float>(original);
-            Assert.AreEqual(-4332F, converted);
+            double converted = conv.Conv<short, double>(original);
+            Assert.AreEqual(-4332D, converted);
         }
 
         [TestMethod]
-        public void ShortToFloatConverterObjSingleParam()
+        public void ShortToDoubleConverterObjSingleParam()
         {
             short original = 56;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<float>(original);
+            double converted = conv.Conv<double>(original);
             Assert.AreEqual(56F, converted);
         }
         #endregion
 
-        #region Uint To Float Tests
+        #region Uint To Double Tests
         [TestMethod]
-        public void UintToFloatConverterObj()
+        public void UintToDoubleConverterObj()
         {
             uint original = 433232222;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<uint, float>(original);
-            Assert.AreEqual(433232222F, converted);
+            double converted = conv.Conv<uint, double>(original);
+            Assert.AreEqual(433232222D, converted);
         }
 
         [TestMethod]
-        public void UintToFloatConverterObjSingleParam()
+        public void UintToDoubleConverterObjSingleParam()
         {
             uint original = 56;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<float>(original);
-            Assert.AreEqual(56F, converted);
+            double converted = conv.Conv<double>(original);
+            Assert.AreEqual(56D, converted);
         }
         #endregion
 
