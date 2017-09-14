@@ -89,7 +89,7 @@ namespace UnitTest
         }
         #endregion
 
-        #region Byte To Float Tests
+        #region Byte To Double Tests
         [TestMethod]
         public void ByteToDoubleConverterObj()
         {
@@ -211,7 +211,7 @@ namespace UnitTest
         }
         #endregion
 
-        #region Long To Float Tests
+        #region Long To Double Tests
         [TestMethod]
         public void LongToDoubleConverterObj()
         {
