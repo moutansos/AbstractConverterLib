@@ -68,7 +68,7 @@ namespace UnitTest
 
         //TODO: Test Exceptions
         #endregion
-
+        
         #region Bool To Double Tests
         [TestMethod]
         public void BoolToDoubleConverterObj()
@@ -126,6 +126,26 @@ namespace UnitTest
             AbstractConverter conv = new AbstractConverter();
             double converted = conv.Conv<double>(original);
             Assert.AreEqual(-232423905D, converted);
+        }
+        #endregion
+
+        #region Float To Double Tests
+        [TestMethod]
+        public void FloatToDoubleConverterObj()
+        {
+            float original = 23F;
+            AbstractConverter conv = new AbstractConverter();
+            double converted = conv.Conv<float, double>(original);
+            Assert.AreEqual(23D, converted);
+        }
+
+        [TestMethod]
+        public void FloatToDoubleConverterObjSingleParam()
+        {
+            float original = -23F;
+            AbstractConverter conv = new AbstractConverter();
+            double converted = conv.Conv<double>(original);
+            Assert.AreEqual(-23D, converted);
         }
         #endregion
 
@@ -251,63 +271,63 @@ namespace UnitTest
         }
         #endregion
 
-        #region Ulong To Float Tests
+        #region Ulong To Double Tests
         [TestMethod]
-        public void UlongToFloatConverterObj()
+        public void UlongToDoubleConverterObj()
         {
             ulong original = 4332444444444444323;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<ulong, float>(original);
-            Assert.AreEqual(4332444444444444323F, converted);
+            double converted = conv.Conv<ulong, double>(original);
+            Assert.AreEqual(4332444444444444323D, converted);
         }
 
         [TestMethod]
-        public void UlongToFloatConverterObjSingleParam()
+        public void UlongToDoubleConverterObjSingleParam()
         {
             ulong original = 56;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<float>(original);
-            Assert.AreEqual(56F, converted);
+            double converted = conv.Conv<double>(original);
+            Assert.AreEqual(56D, converted);
         }
         #endregion
 
-        #region Ushort To Float Tests
+        #region Ushort To Double Tests
         [TestMethod]
-        public void UshortToFloatConverterObj()
+        public void UshortToDoubleConverterObj()
         {
             ushort original = 43324;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<ushort, float>(original);
-            Assert.AreEqual(43324F, converted);
+            double converted = conv.Conv<ushort, double>(original);
+            Assert.AreEqual(43324D, converted);
         }
 
         [TestMethod]
-        public void UshortToFloatConverterObjSingleParam()
+        public void UshortToDoubleConverterObjSingleParam()
         {
             ushort original = 56;
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<float>(original);
-            Assert.AreEqual(56F, converted);
+            double converted = conv.Conv<double>(original);
+            Assert.AreEqual(56D, converted);
         }
         #endregion
 
-        #region Char To Float Tests
+        #region Char To Double Tests
         [TestMethod]
-        public void CharToFloatRawConverterObj()
+        public void CharToDoubleRawConverterObj()
         {
             char original = 'a';
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<char, float>(original);
-            Assert.AreEqual(97F, converted);
+            double converted = conv.Conv<char, double>(original);
+            Assert.AreEqual(97D, converted);
         }
 
         [TestMethod]
-        public void CharToIntRawConverterObjSingleParam()
+        public void CharToDoubleRawConverterObjSingleParam()
         {
             char original = '1';
             AbstractConverter conv = new AbstractConverter();
-            float converted = conv.Conv<float>(original);
-            Assert.AreEqual(49F, converted);
+            double converted = conv.Conv<double>(original);
+            Assert.AreEqual(49D, converted);
         }
         #endregion
     }

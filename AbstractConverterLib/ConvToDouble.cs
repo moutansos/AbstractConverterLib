@@ -52,6 +52,11 @@ namespace AbstractConverterLib
             return data;
         }
 
+        public static double FloatToDouble(float data)
+        {
+            return data;
+        }
+
         public static double DecimalToDoubleDefaultIfUnconvertable(decimal data)
         {
             try
@@ -96,17 +101,17 @@ namespace AbstractConverterLib
             return data;
         }
 
-        public static float UlongToFloat(ulong data)
+        public static double UlongToDouble(ulong data)
         {
             return data;
         }
 
-        public static float UshortToFloat(ushort data)
+        public static double UshortToDouble(ushort data)
         {
             return data;
         }
 
-        public static float CharToFloat(char data)
+        public static double CharToDouble(char data)
         {
             return data;
         }

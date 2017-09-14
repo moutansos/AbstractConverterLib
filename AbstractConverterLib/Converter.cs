@@ -88,11 +88,15 @@ namespace AbstractConverterLib
             router.AddMethod<bool, double>(ConvToDouble.BoolToDouble);
             router.AddMethod<byte, double>(ConvToDouble.ByteToDouble);
             router.AddMethod<int, double>(ConvToDouble.IntToDouble);
+            router.AddMethod<float, double>(ConvToDouble.FloatToDouble);
             router.AddMethod<decimal, double>(ConvToDouble.DecimalToDoubleDefaultIfUnconvertable);
             router.AddMethod<sbyte, double>(ConvToDouble.SbyteToDouble);
             router.AddMethod<long, double>(ConvToDouble.LongToDouble);
             router.AddMethod<short, double>(ConvToDouble.ShortToDouble);
             router.AddMethod<uint, double>(ConvToDouble.UintToDouble);
+            router.AddMethod<ulong, double>(ConvToDouble.UlongToDouble);
+            router.AddMethod<ushort, double>(ConvToDouble.UshortToDouble);
+            router.AddMethod<char, double>(ConvToDouble.CharToDouble);
             #endregion
         }
 
