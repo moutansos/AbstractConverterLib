@@ -98,6 +98,11 @@ namespace AbstractConverterLib
             router.AddMethod<ushort, double>(ConvToDouble.UshortToDouble);
             router.AddMethod<char, double>(ConvToDouble.CharToDouble);
             #endregion
+
+            #region Default To Decimal Methods
+            router.AddMethod<decimal, decimal>(ConvToDecimal.DecimalToDecimal);
+            router.AddMethod<string, decimal>(ConvToDecimal.StringToDecimalZeroIfEmptyOrUnconvertable);
+            #endregion
         }
 
         public OUT Conv<IN, OUT>(IN dataIn)

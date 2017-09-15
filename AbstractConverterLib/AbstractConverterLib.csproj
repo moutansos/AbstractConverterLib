@@ -44,6 +44,7 @@
     <Compile Include="Config\DictionaryToStringConfig.cs" />
     <Compile Include="Converter.cs" />
     <Compile Include="ConvToBool.cs" />
+    <Compile Include="ConvToDecimal.cs" />
     <Compile Include="ConvToDouble.cs" />
     <Compile Include="ConvToFloat.cs" />
     <Compile Include="ConvToInt.cs" />
