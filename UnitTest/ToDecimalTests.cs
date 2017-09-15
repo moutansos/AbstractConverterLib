@@ -69,43 +69,43 @@ namespace UnitTest
         //TODO: Test Exceptions
         #endregion
         
-        #region Bool To Double Tests
+        #region Bool To Decimal Tests
         [TestMethod]
-        public void BoolToDoubleConverterObj()
+        public void BoolToDecimalConverterObj()
         {
             bool original = true;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<bool, double>(original);
-            Assert.AreEqual(1D, converted);
+            decimal converted = conv.Conv<bool, decimal>(original);
+            Assert.AreEqual(1m, converted);
         }
 
         [TestMethod]
-        public void BoolToDoubleConverterObjSingleParam()
+        public void BoolToDecimalConverterObjSingleParam()
         {
             bool original = false;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(0D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(0m, converted);
         }
         #endregion
 
-        #region Byte To Double Tests
+        #region Byte To Decimal Tests
         [TestMethod]
-        public void ByteToDoubleConverterObj()
+        public void ByteToDecimalConverterObj()
         {
             byte original = 43;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<byte, double>(original);
-            Assert.AreEqual(43D, converted);
+            decimal converted = conv.Conv<byte, decimal>(original);
+            Assert.AreEqual(43m, converted);
         }
 
         [TestMethod]
-        public void ByteToDoubleConverterObjSingleParam()
+        public void ByteToDecimalConverterObjSingleParam()
         {
             byte original = 234;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(234D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(234m, converted);
         }
         #endregion
 

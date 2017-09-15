@@ -33,16 +33,16 @@ namespace AbstractConverterLib
             throw new UnconvertableDataException("Unable to convert \"" + data + "\" to a double.");
         }
 
-        public static double BoolToDouble(bool data)
+        public static decimal BoolToDecimal(bool data)
         {
             if (data)
             {
-                return 1D;
+                return 1m;
             }
-            return 0D;
+            return 0m;
         }
 
-        public static double ByteToDouble(byte data)
+        public static decimal ByteToDecimal(byte data)
         {
             return data;
         }
