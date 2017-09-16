@@ -104,6 +104,9 @@ namespace AbstractConverterLib
             router.AddMethod<string, decimal>(ConvToDecimal.StringToDecimalZeroIfEmptyOrUnconvertable);
             router.AddMethod<bool, decimal>(ConvToDecimal.BoolToDecimal);
             router.AddMethod<byte, decimal>(ConvToDecimal.ByteToDecimal);
+            router.AddMethod<int, decimal>(ConvToDecimal.IntToDecimal);
+            router.AddMethod<float, decimal>(ConvToDecimal.FloatToDecimal);
+            router.AddMethod<double, decimal>(ConvToDecimal.DoubleToDecimal);
             #endregion
         }
 

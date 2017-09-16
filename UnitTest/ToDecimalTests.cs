@@ -109,86 +109,64 @@ namespace UnitTest
         }
         #endregion
 
-        #region Int To Double Tests
+        #region Int To Decimal Tests
         [TestMethod]
-        public void IntToDoubleConverterObj()
+        public void IntToDecimalConverterObj()
         {
             int original = 232423905;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<int, double>(original);
-            Assert.AreEqual(232423905D, converted);
+            decimal converted = conv.Conv<int, decimal>(original);
+            Assert.AreEqual(232423905m, converted);
         }
 
         [TestMethod]
-        public void IntToDoubleConverterObjSingleParam()
+        public void IntToDecimalConverterObjSingleParam()
         {
             int original = -232423905;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(-232423905D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(-232423905m, converted);
         }
         #endregion
 
-        #region Float To Double Tests
+        #region Float To Decimal Tests
         [TestMethod]
         public void FloatToDoubleConverterObj()
         {
             float original = 23F;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<float, double>(original);
-            Assert.AreEqual(23D, converted);
+            decimal converted = conv.Conv<float, decimal>(original);
+            Assert.AreEqual(23m, converted);
         }
 
         [TestMethod]
-        public void FloatToDoubleConverterObjSingleParam()
+        public void FloatToDecimalConverterObjSingleParam()
         {
             float original = -23F;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(-23D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(-23m, converted);
         }
         #endregion
 
-        #region Decimal To Double Tests
+        #region Double To Decimal Tests
         [TestMethod]
-        public void DecimalToDoubleDefaultIfUnconvertableConverterObj()
+        public void DoubleToDecimalConverterObj()
         {
-            decimal original = 10M;
+            double original = 10D;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<decimal, double>(original);
-            Assert.AreEqual(10D, converted);
+            decimal converted = conv.Conv<double, decimal>(original);
+            Assert.AreEqual(10m, converted);
         }
 
         [TestMethod]
-        public void DecimalToDoubleDefaultIfUnconvertableConverterObjSingleParam()
+        public void DoubleToDecimalConverterObjSingleParam()
         {
-            decimal original = -232423905324324M;
+            double original = -232423905324324D;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(-232423905324324D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(-232423905324324m, converted);
         }
-
-        [TestMethod]
-        public void DecimalToDoubleExceptionIfUnconvertableConverterObj()
-        {
-            decimal original = 232423905M;
-            AbstractConverter conv = new AbstractConverter();
-            conv.Set<decimal, double>(ConvToDouble.DecimalToDoubleExceptionIfUnconvertable);
-            double converted = conv.Conv<decimal, double>(original);
-            Assert.AreEqual(232423905D, converted);
-        }
-
-        [TestMethod]
-        public void DecimalToDoubleExceptionIfUnconvertableConverterObjSingleParam()
-        {
-            decimal original = -2324239053243244444M;
-            AbstractConverter conv = new AbstractConverter();
-            conv.Set<decimal, double>(ConvToDouble.DecimalToDoubleExceptionIfUnconvertable);
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(-2324239053243244444D, converted);
-        }
-
-        //TODO: Test exceptions
         #endregion
 
         #region Sbyte To Double Tests

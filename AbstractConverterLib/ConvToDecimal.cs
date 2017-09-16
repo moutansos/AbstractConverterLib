@@ -47,38 +47,19 @@ namespace AbstractConverterLib
             return data;
         }
 
-        public static double IntToDouble(int data)
+        public static decimal IntToDecimal(int data)
         {
             return data;
         }
 
-        public static double FloatToDouble(float data)
+        public static decimal FloatToDecimal(float data)
         {
-            return data;
+            return Convert.ToDecimal(data);
         }
 
-        public static double DecimalToDoubleDefaultIfUnconvertable(decimal data)
+        public static decimal DoubleToDecimal(double data)
         {
-            try
-            {
-                return decimal.ToDouble(data);
-            }
-            catch (OverflowException)
-            {
-                return 0D;
-            }
-        }
-
-        public static double DecimalToDoubleExceptionIfUnconvertable(decimal data)
-        {
-            try
-            {
-                return decimal.ToDouble(data);
-            }
-            catch (OverflowException)
-            {
-                throw new UnconvertableDataException("Unable to convert " + data + " to a double. The value doesn't fit in the data type.");
-            }
+            return Convert.ToDecimal(data);
         }
 
         public static double SbyteToDouble(sbyte data)
