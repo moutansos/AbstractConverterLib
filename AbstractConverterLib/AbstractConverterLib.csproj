@@ -48,6 +48,7 @@
     <Compile Include="ConvToDouble.cs" />
     <Compile Include="ConvToFloat.cs" />
     <Compile Include="ConvToInt.cs" />
+    <Compile Include="ConvToLong.cs" />
     <Compile Include="ConvToString.cs" />
     <Compile Include="EvalType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
