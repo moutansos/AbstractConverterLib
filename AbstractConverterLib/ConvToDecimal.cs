@@ -30,7 +30,7 @@ namespace AbstractConverterLib
             {
                 return retData;
             }
-            throw new UnconvertableDataException("Unable to convert \"" + data + "\" to a double.");
+            throw new UnconvertableDataException("Unable to convert \"" + data + "\" to a decimal.");
         }
 
         public static decimal BoolToDecimal(bool data)
@@ -62,37 +62,37 @@ namespace AbstractConverterLib
             return Convert.ToDecimal(data);
         }
 
-        public static double SbyteToDouble(sbyte data)
+        public static decimal SbyteToDecimal(sbyte data)
         {
             return data;
         }
 
-        public static double LongToDouble(long data)
+        public static decimal LongToDecimal(long data)
         {
             return data;
         }
 
-        public static double ShortToDouble(short data)
+        public static decimal ShortToDecimal(short data)
         {
             return data;
         }
 
-        public static double UintToDouble(uint data)
+        public static decimal UintToDecimal(uint data)
         {
             return data;
         }
 
-        public static double UlongToDouble(ulong data)
+        public static decimal UlongToDecimal(ulong data)
         {
             return data;
         }
 
-        public static double UshortToDouble(ushort data)
+        public static decimal UshortToDecimal(ushort data)
         {
             return data;
         }
 
-        public static double CharToDouble(char data)
+        public static decimal CharToDecimal(char data)
         {
             return data;
         }

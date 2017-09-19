@@ -107,6 +107,13 @@ namespace AbstractConverterLib
             router.AddMethod<int, decimal>(ConvToDecimal.IntToDecimal);
             router.AddMethod<float, decimal>(ConvToDecimal.FloatToDecimal);
             router.AddMethod<double, decimal>(ConvToDecimal.DoubleToDecimal);
+            router.AddMethod<sbyte, decimal>(ConvToDecimal.SbyteToDecimal);
+            router.AddMethod<long, decimal>(ConvToDecimal.LongToDecimal);
+            router.AddMethod<short, decimal>(ConvToDecimal.ShortToDecimal);
+            router.AddMethod<uint, decimal>(ConvToDecimal.UintToDecimal);
+            router.AddMethod<ulong, decimal>(ConvToDecimal.UlongToDecimal);
+            router.AddMethod<ushort, decimal>(ConvToDecimal.UshortToDecimal);
+            router.AddMethod<char, decimal>(ConvToDecimal.CharToDecimal);
             #endregion
         }
 

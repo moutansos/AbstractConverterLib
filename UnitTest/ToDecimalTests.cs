@@ -131,7 +131,7 @@ namespace UnitTest
 
         #region Float To Decimal Tests
         [TestMethod]
-        public void FloatToDoubleConverterObj()
+        public void FloatToDecimalConverterObj()
         {
             float original = 23F;
             AbstractConverter conv = new AbstractConverter();
@@ -169,143 +169,143 @@ namespace UnitTest
         }
         #endregion
 
-        #region Sbyte To Double Tests
+        #region Sbyte To Decimal Tests
         [TestMethod]
-        public void SbyteToDoubleConverterObj()
+        public void SbyteToDecimalConverterObj()
         {
             sbyte original = -43;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<sbyte, double>(original);
-            Assert.AreEqual(-43F, converted);
+            decimal converted = conv.Conv<sbyte, decimal>(original);
+            Assert.AreEqual(-43m, converted);
         }
 
         [TestMethod]
-        public void SbyteToDoubleConverterObjSingleParam()
+        public void SbyteToDecimalConverterObjSingleParam()
         {
             sbyte original = 56;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(56D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(56m, converted);
         }
         #endregion
 
-        #region Long To Double Tests
+        #region Long To Decimal Tests
         [TestMethod]
-        public void LongToDoubleConverterObj()
+        public void LongToDecimalConverterObj()
         {
             long original = -4332444444444444323;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<long, double>(original);
-            Assert.AreEqual(-4332444444444444323D, converted);
+            decimal converted = conv.Conv<long, decimal>(original);
+            Assert.AreEqual(-4332444444444444323m, converted);
         }
 
         [TestMethod]
-        public void LongToDoubleConverterObjSingleParam()
+        public void LongToDecimalConverterObjSingleParam()
         {
             long original = 56;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(56D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(56m, converted);
         }
         #endregion
 
-        #region Short To Double Tests
+        #region Short To Decimal Tests
         [TestMethod]
-        public void ShortToDoubleConverterObj()
+        public void ShortToDecimalConverterObj()
         {
             short original = -4332;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<short, double>(original);
-            Assert.AreEqual(-4332D, converted);
+            decimal converted = conv.Conv<short, decimal>(original);
+            Assert.AreEqual(-4332m, converted);
         }
 
         [TestMethod]
-        public void ShortToDoubleConverterObjSingleParam()
+        public void ShortToDecimalConverterObjSingleParam()
         {
             short original = 56;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(56F, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(56m, converted);
         }
         #endregion
 
-        #region Uint To Double Tests
+        #region Uint To Decimal Tests
         [TestMethod]
-        public void UintToDoubleConverterObj()
+        public void UintToDecimalConverterObj()
         {
             uint original = 433232222;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<uint, double>(original);
-            Assert.AreEqual(433232222D, converted);
+            decimal converted = conv.Conv<uint, decimal>(original);
+            Assert.AreEqual(433232222m, converted);
         }
 
         [TestMethod]
-        public void UintToDoubleConverterObjSingleParam()
+        public void UintToDecimalConverterObjSingleParam()
         {
             uint original = 56;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(56D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(56m, converted);
         }
         #endregion
 
-        #region Ulong To Double Tests
+        #region Ulong To Decimal Tests
         [TestMethod]
-        public void UlongToDoubleConverterObj()
+        public void UlongToDecimalConverterObj()
         {
             ulong original = 4332444444444444323;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<ulong, double>(original);
-            Assert.AreEqual(4332444444444444323D, converted);
+            decimal converted = conv.Conv<ulong, decimal>(original);
+            Assert.AreEqual(4332444444444444323m, converted);
         }
 
         [TestMethod]
-        public void UlongToDoubleConverterObjSingleParam()
+        public void UlongToDecimalConverterObjSingleParam()
         {
             ulong original = 56;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(56D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(56m, converted);
         }
         #endregion
 
-        #region Ushort To Double Tests
+        #region Ushort To Decimal Tests
         [TestMethod]
-        public void UshortToDoubleConverterObj()
+        public void UshortToDecimalConverterObj()
         {
             ushort original = 43324;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<ushort, double>(original);
-            Assert.AreEqual(43324D, converted);
+            decimal converted = conv.Conv<ushort, decimal>(original);
+            Assert.AreEqual(43324m, converted);
         }
 
         [TestMethod]
-        public void UshortToDoubleConverterObjSingleParam()
+        public void UshortToDecimalConverterObjSingleParam()
         {
             ushort original = 56;
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(56D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(56m, converted);
         }
         #endregion
 
-        #region Char To Double Tests
+        #region Char To Decimal Tests
         [TestMethod]
-        public void CharToDoubleRawConverterObj()
+        public void CharToDecimalRawConverterObj()
         {
             char original = 'a';
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<char, double>(original);
-            Assert.AreEqual(97D, converted);
+            decimal converted = conv.Conv<char, decimal>(original);
+            Assert.AreEqual(97m, converted);
         }
 
         [TestMethod]
-        public void CharToDoubleRawConverterObjSingleParam()
+        public void CharToDecimalRawConverterObjSingleParam()
         {
             char original = '1';
             AbstractConverter conv = new AbstractConverter();
-            double converted = conv.Conv<double>(original);
-            Assert.AreEqual(49D, converted);
+            decimal converted = conv.Conv<decimal>(original);
+            Assert.AreEqual(49m, converted);
         }
         #endregion
     }
