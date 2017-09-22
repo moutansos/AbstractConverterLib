@@ -116,7 +116,22 @@ namespace AbstractConverterLib
             router.AddMethod<char, decimal>(ConvToDecimal.CharToDecimal);
             #endregion
 
-            //TODO: Default To Long Methods
+            #region Default To Long Methods
+            router.AddMethod<long, long>(ConvToLong.LongToLong);
+            router.AddMethod<string, long>(ConvToLong.StringToLongZeroIfEmptyOrUnconvertable);
+            router.AddMethod<bool, long>(ConvToLong.BoolToLong);
+            router.AddMethod<byte, long>(ConvToLong.ByteToLong);
+            router.AddMethod<float, long>(ConvToLong.FloatToLongRoundDown);
+            router.AddMethod<double, long>(ConvToLong.DoubleToLongRoundDown);
+            router.AddMethod<decimal, long>(ConvToLong.DecimalToLongRoundDown);
+            router.AddMethod<sbyte, long>(ConvToLong.SbyteToLong);
+            router.AddMethod<int, long>(ConvToLong.IntToLong);
+            router.AddMethod<short, long>(ConvToLong.ShortToLong);
+            router.AddMethod<uint, long>(ConvToLong.UintToLong);
+            router.AddMethod<ulong, long>(ConvToLong.UlongToLongDefaultIfUnconvertable);
+            router.AddMethod<ushort, long>(ConvToLong.UshortToLong);
+            router.AddMethod<char, long>(ConvToLong.CharToLongRaw);
+            #endregion
         }
 
         public OUT Conv<IN, OUT>(IN dataIn)
