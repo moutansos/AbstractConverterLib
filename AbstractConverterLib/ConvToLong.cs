@@ -70,70 +70,65 @@ namespace AbstractConverterLib
             return (long)Math.Ceiling(data);
         }
 
-        public static int DecimalToIntRoundDown(decimal data)
+        public static long DecimalToLongRoundDown(decimal data)
         {
             //TODO: Validate that these values can be casted without worry of exceptions or data corruption
-            return (int)Math.Floor(data);
+            return (long)Math.Floor(data);
         }
 
-        public static int DecimalToIntRoundUp(decimal data)
+        public static long DecimalToLongRoundUp(decimal data)
         {
             //TODO: Validate that these values can ve casted without worry of exceptions or data corruption
-            return (int)Math.Ceiling(data);
+            return (long)Math.Ceiling(data);
         }
 
-        public static int SbyteToInt(sbyte data)
-        {
-            return data; //No conversion necessary. Sbytes are smaller than integers.
-        }
-
-        public static int LongToInt(long data)
-        {
-            if (data >= int.MinValue && data <= int.MaxValue)
-            {
-                return Convert.ToInt32(data);
-            }
-            else
-            {
-                throw new UnconvertableDataException("The input value of " + data + " is outside the range of int");
-            }
-        }
-
-        public static int ShortToInt(short data)
-        {
-            return data; //No conversion necessary. Value is small enough to be safely put into integer
-        }
-
-        public static int UintToInt(uint data)
-        {
-            if (data <= int.MaxValue)
-            {
-                return Convert.ToInt32(data);
-            }
-            else
-            {
-                throw new UnconvertableDataException("The input value of " + data + " is too big for a standard int");
-            }
-        }
-
-        public static int UlongToInt(ulong data)
-        {
-            if (data <= int.MaxValue)
-            {
-                return Convert.ToInt32(data);
-            }
-            else
-            {
-                throw new UnconvertableDataException("The input value of " + data + " is too big for a standard int");
-            }
-        }
-
-        public static int UshortToInt(ushort data)
+        public static long SbyteToLong(sbyte data)
         {
             return data;
         }
 
-        public static int CharToIntRaw(char data)
+        public static long IntToLong(int data)
+        {
+            return data;
+        }
+
+        public static long ShortToLong(short data)
+        {
+            return data;
+        }
+
+        public static long UintToLong(uint data)
+        {
+            return data;
+        }
+
+        public static long UlongToLongExceptionIfUnconvertable(ulong data)
+        {
+            if (data <= long.MaxValue)
+            {
+                return Convert.ToInt64(data);
+            }
+            else
+            {
+                throw new UnconvertableDataException("The input value of " + data + " is too big for a long integer");
+            }
+        }
+
+        public static long UlongToLongDefaultIfUnconvertable(ulong data)
+        {
+            if (data <= long.MaxValue)
+            {
+                return Convert.ToInt64(data);
+            }
+            return 0;
+        }
+
+        public static long UshortToLong(ushort data)
+        {
+            return data;
+        }
+
+        public static long CharToLongRaw(char data)
         {
             return data;
         }

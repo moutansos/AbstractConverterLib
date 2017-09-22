@@ -115,6 +115,8 @@ namespace AbstractConverterLib
             router.AddMethod<ushort, decimal>(ConvToDecimal.UshortToDecimal);
             router.AddMethod<char, decimal>(ConvToDecimal.CharToDecimal);
             #endregion
+
+            //TODO: Default To Long Methods
         }
 
         public OUT Conv<IN, OUT>(IN dataIn)
