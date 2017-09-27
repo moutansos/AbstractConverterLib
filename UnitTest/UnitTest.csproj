@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ToFloatTests.cs" />
+    <Compile Include="ToLongTests.cs" />
     <Compile Include="ToIntTests.cs" />
     <Compile Include="ToStringTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
