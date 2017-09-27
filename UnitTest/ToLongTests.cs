@@ -108,42 +108,42 @@ namespace UnitTest
         }
         #endregion
 
-        #region Double To Int Tests
+        #region Double To Long Tests
         [TestMethod]
-        public void DoubleToIntRoundDownConverterObj()
+        public void DoubleToLongRoundDownConverterObj()
         {
             double original = 1.3423;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<double, int>(original);
+            long converted = conv.Conv<double, long>(original);
             Assert.AreEqual(1, converted);
         }
 
         [TestMethod]
-        public void DoubleToIntRoundDownSingleParam()
+        public void DoubleToLongRoundDownSingleParam()
         {
             double original = 1.3423;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(1, converted);
         }
 
         [TestMethod]
-        public void DoubleToIntRoundUpConverterObj()
+        public void DoubleToLongRoundUpConverterObj()
         {
             double original = 1.3423;
             AbstractConverter conv = new AbstractConverter();
-            conv.Set<double, int>(ConvToInt.DoubleToIntRoundUp);
-            int converted = conv.Conv<double, int>(original);
+            conv.Set<double, long>(ConvToLong.DoubleToLongRoundUp);
+            long converted = conv.Conv<double, long>(original);
             Assert.AreEqual(2, converted);
         }
 
         [TestMethod]
-        public void DoubleToIntRoundUpSingleParam()
+        public void DoubleToLongRoundUpSingleParam()
         {
             double original = 1.3423;
             AbstractConverter conv = new AbstractConverter();
-            conv.Set<double, int>(ConvToInt.DoubleToIntRoundUp);
-            int converted = conv.Conv<int>(original);
+            conv.Set<double, long>(ConvToLong.DoubleToLongRoundUp);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(2, converted);
         }
         #endregion
