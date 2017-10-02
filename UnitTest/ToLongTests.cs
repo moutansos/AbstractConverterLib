@@ -148,188 +148,186 @@ namespace UnitTest
         }
         #endregion
 
-        #region Decimal To Int Tests
+        #region Decimal To Long Tests
         [TestMethod]
-        public void DecimalToIntRoundDownConverterObj()
+        public void DecimalToLongRoundDownConverterObj()
         {
             decimal original = 1.3423M;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<decimal, int>(original);
+            long converted = conv.Conv<decimal, long>(original);
             Assert.AreEqual(1, converted);
         }
 
         [TestMethod]
-        public void DecimalToIntRoundDownSingleParam()
+        public void DecimalToLongRoundDownSingleParam()
         {
             decimal original = 1.3423M;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(1, converted);
         }
 
         [TestMethod]
-        public void DecimalToIntRoundUpConverterObj()
+        public void DecimalToLongRoundUpConverterObj()
         {
             decimal original = 1.3423M;
             AbstractConverter conv = new AbstractConverter();
-            conv.Set<decimal, int>(ConvToInt.DecimalToIntRoundUp);
-            int converted = conv.Conv<decimal, int>(original);
+            conv.Set<decimal, long>(ConvToLong.DecimalToLongRoundUp);
+            long converted = conv.Conv<decimal, long>(original);
             Assert.AreEqual(2, converted);
         }
 
         [TestMethod]
-        public void DecimalToIntRoundUpSingleParam()
+        public void DecimalToLongRoundUpSingleParam()
         {
             decimal original = 1.3423M;
             AbstractConverter conv = new AbstractConverter();
-            conv.Set<decimal, int>(ConvToInt.DecimalToIntRoundUp);
-            int converted = conv.Conv<int>(original);
+            conv.Set<decimal, long>(ConvToLong.DecimalToLongRoundUp);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(2, converted);
         }
         #endregion
 
-        #region Sbyte To Int Tests
+        #region Sbyte To Long Tests
         [TestMethod]
-        public void SbyteToIntConverterObj()
+        public void SbyteToLongConverterObj()
         {
             sbyte original = -28;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<sbyte, int>(original);
+            long converted = conv.Conv<sbyte, long>(original);
             Assert.AreEqual(original, converted);
         }
 
         [TestMethod]
-        public void SbyteToIntConverterObjSingleParam()
+        public void SbyteToLongConverterObjSingleParam()
         {
             sbyte original = -8;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(original, converted);
         }
         #endregion
 
-        #region Long To Int Tests
+        #region Int To Long Tests
         [TestMethod]
-        public void LongToIntConverterObj()
+        public void IntToLongConverterObj()
         {
-            long original = -28;
+            int original = -28;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<long, int>(original);
+            long converted = conv.Conv<int, long>(original);
             Assert.AreEqual(original, converted);
         }
 
         [TestMethod]
-        public void LongToIntConverterObjSingleParam()
+        public void IntToLongConverterObjSingleParam()
         {
-            long original = -8;
+            int original = -8;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(original, converted);
         }
-
-        //TODO: Test Exceptions
         #endregion
 
-        #region Short To Int Tests
+        #region Short To Long Tests
         [TestMethod]
-        public void ShortToIntConverterObj()
+        public void ShortToLongConverterObj()
         {
             short original = -28;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<short, int>(original);
+            long converted = conv.Conv<short, long>(original);
             Assert.AreEqual(original, converted);
         }
 
         [TestMethod]
-        public void ShortToIntConverterObjSingleParam()
+        public void ShortToLongConverterObjSingleParam()
         {
             short original = -8;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(original, converted);
         }
         #endregion
 
-        #region Uint To Int Tests
+        #region Uint To Long Tests
         [TestMethod]
-        public void UintToIntConverterObj()
+        public void UintToLongConverterObj()
         {
             uint original = 28;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<uint, int>(original);
+            long converted = conv.Conv<uint, long>(original);
             Assert.AreEqual(28, converted);
         }
 
         [TestMethod]
-        public void UintToIntConverterObjSingleParam()
+        public void UintToLongConverterObjSingleParam()
         {
             uint original = 832;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(832, converted);
         }
 
         //TODO: Test Exceptions
         #endregion
 
-        #region Ulong To Int Tests
+        #region Ulong To Long Tests
         [TestMethod]
-        public void UlongToIntConverterObj()
+        public void UlongToLongConverterObj()
         {
             ulong original = 2823434;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<ulong, int>(original);
+            long converted = conv.Conv<ulong, long>(original);
             Assert.AreEqual(2823434, converted);
         }
 
         [TestMethod]
-        public void UlongToIntConverterObjSingleParam()
+        public void UlongToLongConverterObjSingleParam()
         {
             ulong original = 832438;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(832438, converted);
         }
 
         //TODO: Test Exceptions
         #endregion
 
-        #region Ushort To Int Tests
+        #region Ushort To Long Tests
         [TestMethod]
-        public void UshortToIntConverterObj()
+        public void UshortToLongConverterObj()
         {
             ushort original = 28234;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<ushort, int>(original);
+            long converted = conv.Conv<ushort, long>(original);
             Assert.AreEqual(28234, converted);
         }
 
         [TestMethod]
-        public void UshortToIntConverterObjSingleParam()
+        public void UshortToLongConverterObjSingleParam()
         {
             ushort original = 8324;
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(8324, converted);
         }
         #endregion
 
-        #region Char To Int Tests
+        #region Char To Long Tests
         [TestMethod]
-        public void CharToIntRawConverterObj()
+        public void CharToLongRawConverterObj()
         {
             char original = 'a';
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<char, int>(original);
+            long converted = conv.Conv<char, long>(original);
             Assert.AreEqual(97, converted);
         }
 
         [TestMethod]
-        public void CharToIntRawConverterObjSingleParam()
+        public void CharToLongRawConverterObjSingleParam()
         {
             char original = '1';
             AbstractConverter conv = new AbstractConverter();
-            int converted = conv.Conv<int>(original);
+            long converted = conv.Conv<long>(original);
             Assert.AreEqual(49, converted);
         }
         #endregion
